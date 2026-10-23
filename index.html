@@ -3,178 +3,513 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Harsh.ai Developer — personal portfolio showcasing AI projects, web development, skills and certificates.">
-  <meta name="theme-color" content="#080b14">
-  <title>Harsh.ai Developer | AI & Web Developer</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <meta name="description" content="Harsh Dhankhar's portfolio — engineering student, aspiring software developer, and project builder.">
+  <title>Harsh Dhankhar | Developer Portfolio</title>
 
-  <header class="navbar">
-    <a class="logo" href="#home">Harsh<span>.ai</span></a>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#certificates">Certificates</a>
-      <a href="#contact">Contact</a>
+  <style>
+    :root {
+      --bg: #080d1a;
+      --card: #101a2d;
+      --text: #f3f6ff;
+      --muted: #a5b2ca;
+      --blue: #59a6ff;
+      --border: rgba(148, 175, 220, 0.18);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1080px, 90%); margin: auto; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(8, 13, 26, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo { font-size: 21px; font-weight: 800; }
+    .logo span, .accent { color: var(--blue); }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover { color: var(--blue); }
+
+    section { padding: 76px 0; }
+
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(ellipse at 80% 20%, rgba(35, 100, 190, 0.17), transparent 42%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 0.8fr;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .eyebrow {
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(38px, 6vw, 66px);
+      line-height: 1.12;
+      margin: 15px 0;
+      letter-spacing: -1.5px;
+    }
+
+    h2 { font-size: clamp(27px, 4vw, 38px); margin-bottom: 12px; }
+    h3 { font-size: 19px; margin-bottom: 10px; }
+    p { color: var(--muted); }
+    .intro { max-width: 620px; font-size: 17px; }
+
+    .typing { color: var(--blue); min-height: 35px; font-weight: 700; }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 11px 17px;
+      border: 1px solid var(--blue);
+      border-radius: 10px;
+      background: var(--blue);
+      color: #06101f;
+      font-weight: 700;
+      font-size: 14px;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .btn:hover { transform: translateY(-3px); }
+    .btn-outline { background: transparent; color: var(--text); }
+    .btn-outline:hover { background: rgba(89, 166, 255, 0.12); }
+
+    .profile-wrap { text-align: center; }
+
+    .profile-img {
+      width: min(280px, 100%);
+      aspect-ratio: 1;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 28px;
+      border: 2px solid var(--blue);
+      box-shadow: 0 0 45px rgba(55, 139, 255, 0.17);
+    }
+
+    .section-heading { margin-bottom: 28px; }
+    .section-heading p { max-width: 650px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      padding: 23px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: linear-gradient(145deg, #111d32, #0c1425);
+      transition: transform 0.2s, border-color 0.2s;
+      overflow-wrap: anywhere;
+    }
+
+    .card:hover { transform: translateY(-4px); border-color: var(--blue); }
+    .card p { font-size: 14px; }
+    .card-link { display: inline-block; color: var(--blue); margin-top: 13px; font-size: 14px; }
+
+    .skills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
+
+    .skill {
+      padding: 7px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: #dce9ff;
+      background: rgba(89, 166, 255, 0.07);
+      font-size: 13px;
+    }
+
+    .certificate-list { display: grid; gap: 12px; }
+
+    .certificate {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 17px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--card);
+    }
+
+    .certificate p { font-size: 13px; }
+    .certificate a { color: var(--blue); font-weight: bold; font-size: 14px; }
+
+    .contact-card { text-align: center; }
+    .contact-card p { margin: 8px 0; overflow-wrap: anywhere; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 23px 0;
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 700px) {
+      nav { align-items: flex-start; flex-direction: column; padding: 14px 0; }
+      .nav-links { gap: 12px; }
+      .hero { min-height: auto; }
+      .hero-grid { grid-template-columns: 1fr; gap: 32px; padding-top: 25px; }
+      .profile-wrap { grid-row: 1; }
+      .profile-img { width: 190px; border-radius: 22px; }
+      section { padding: 55px 0; }
+      .grid { grid-template-columns: 1fr; }
+      .certificate { align-items: flex-start; }
+      .intro { font-size: 15px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="container">
+      <a class="logo" href="#home">Harsh<span>.dev</span></a>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#contact">Contact</a>
+      </div>
     </nav>
   </header>
 
   <main>
     <section class="hero" id="home">
-      <div class="hero-text">
-        <p class="eyebrow">WELCOME TO MY PORTFOLIO</p>
-        <h1>Hi, I'm Harsh.<br>
-          I build <span>digital experiences.</span>
-        </h1>
-        <p class="intro">
-          Engineering student, aspiring AI developer and technology enthusiast.
-          I enjoy learning new technologies and turning ideas into useful projects.
-        </p>
-        <div class="hero-buttons">
-          <a class="btn primary" href="#projects">Explore My Projects ↗</a>
-          <a class="btn secondary" href="#contact">Get In Touch</a>
-        </div>
-        <p class="availability">✦ Always learning. Always building.</p>
-      </div>
-
-      <div class="profile-card">
-        <div class="orbit orbit-one"></div>
-        <div class="orbit orbit-two"></div>
-        <img src="profile.jpg" alt="Harsh's profile photo" class="profile-photo">
-        <h2>Harsh</h2>
-        <p>AI & Web Development Enthusiast</p>
-        <span class="profile-tag">Building my future with code</span>
-      </div>
-    </section>
-
-    <section class="section about" id="about">
-      <p class="eyebrow">GET TO KNOW ME</p>
-      <h2 class="section-title">About <span>Me</span></h2>
-      <p class="section-description">
-        I'm an engineering student developing my skills in programming,
-        web development and artificial intelligence. My goal is to create
-        practical projects, strengthen my problem-solving abilities and
-        keep growing as a developer.
-      </p>
-      <div class="stats">
-        <div class="stat"><strong>01</strong><span>Curious Mind</span></div>
-        <div class="stat"><strong>AI</strong><span>Area of Interest</span></div>
-        <div class="stat"><strong>∞</strong><span>Learning Mindset</span></div>
-      </div>
-    </section>
-
-    <section class="section" id="skills">
-      <p class="eyebrow">WHAT I'M LEARNING</p>
-      <h2 class="section-title">My <span>Skills</span></h2>
-      <p class="section-description">
-        Technologies and skills I'm developing through practice and projects.
-      </p>
-      <div class="skill-grid">
-        <article class="skill-card">
-          <div class="skill-icon">⌨</div>
-          <h3>Programming</h3>
-          <p>C, C++ and Python fundamentals</p>
-        </article>
-        <article class="skill-card">
-          <div class="skill-icon">⌘</div>
-          <h3>Web Development</h3>
-          <p>HTML, CSS and JavaScript</p>
-        </article>
-        <article class="skill-card">
-          <div class="skill-icon">✧</div>
-          <h3>Artificial Intelligence</h3>
-          <p>Exploring AI tools and applications</p>
-        </article>
-        <article class="skill-card">
-          <div class="skill-icon">◈</div>
-          <h3>Problem Solving</h3>
-          <p>Logical thinking and coding practice</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section projects" id="projects">
-      <p class="eyebrow">WHAT I'M WORKING ON</p>
-      <h2 class="section-title">Featured <span>Projects</span></h2>
-      <p class="section-description">
-        Ideas and applications I'm exploring as I grow my development skills.
-      </p>
-
-      <div class="project-grid">
-        <article class="project-card">
-          <div class="project-art art-ai">✧</div>
-          <div class="project-content">
-            <span class="project-status">PLANNED / IN PROGRESS</span>
-            <h3>AI Chat Assistant</h3>
-            <p>A chat interface concept for asking questions and exploring AI-powered assistance.</p>
-            <div class="tags"><span>AI</span><span>JavaScript</span><span>Web</span></div>
-            <span class="project-link">Featured Project · Demo coming soon</span>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-art art-task">✓</div>
-          <div class="project-content">
-            <span class="project-status">PLANNED / IN PROGRESS</span>
-            <h3>Task Flow</h3>
-            <p>A task management app concept for organizing daily activities and tracking progress.</p>
-            <div class="tags"><span>Productivity</span><span>HTML</span><span>CSS</span></div>
-            <span class="project-link">Featured Project · Demo coming soon</span>
-          </div>
-        </article>
-
-        <article class="project-card">
-          <div class="project-art art-weather">☼</div>
-          <div class="project-content">
-            <span class="project-status">PLANNED / IN PROGRESS</span>
-            <h3>Weather Dashboard</h3>
-            <p>A weather dashboard concept for displaying current conditions and forecasts.</p>
-            <div class="tags"><span>API</span><span>JavaScript</span><span>Dashboard</span></div>
-            <span class="project-link">Featured Project · Demo coming soon</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="certificates">
-      <p class="eyebrow">MY LEARNING JOURNEY</p>
-      <h2 class="section-title">Certificates & <span>Achievements</span></h2>
-      <p class="section-description">
-        A place to showcase completed courses, certifications and achievements.
-      </p>
-
-      <div class="certificate-box">
-        <div class="certificate-icon">▤</div>
+      <div class="container hero-grid">
         <div>
-          <h3>Certificates coming soon</h3>
-          <p>My verified course certificates and achievements will be added here.</p>
+          <p class="eyebrow">Welcome to my portfolio</p>
+          <h1>Hi, I'm Harsh<br><span class="accent">Dhankhar.</span></h1>
+          <div class="typing" id="typing" aria-live="polite">Engineering Student</div>
+          <p class="intro">
+            I'm a BE Core student at Chandigarh University, learning programming
+            and web development while building practical projects and improving
+            my problem-solving skills.
+          </p>
+
+          <div class="buttons">
+            <a class="btn" href="#projects">Explore My Work ↗</a>
+            <a class="btn btn-outline" href="./resume.pdf"
+               target="_blank" rel="noopener noreferrer">View Resume ↗</a>
+            <a class="btn btn-outline" href="#contact">Get In Touch</a>
+          </div>
+        </div>
+
+        <div class="profile-wrap">
+          <img class="profile-img" src="./profile.jpg"
+               alt="Harsh Dhankhar profile photo">
+          <p style="margin-top: 12px;">Engineering student · Aspiring developer</p>
         </div>
       </div>
-      <p class="small-note">
-        Add your real certificates to this section when ready.
-      </p>
     </section>
 
-    <section class="section contact" id="contact">
-      <p class="eyebrow">LET'S CONNECT</p>
-      <h2 class="section-title">Have an idea? <span>Let's talk.</span></h2>
-      <p class="section-description">
-        Interested in technology, AI projects or collaborating on something useful?
-        Feel free to connect.
-      </p>
-      <a class="btn primary" href="https://github.com/harshbuilds-AI-dev" target="_blank" rel="noopener noreferrer">
-        Visit My GitHub ↗
-      </a>
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Get to know me</p>
+          <h2>About <span class="accent">Me</span></h2>
+        </div>
+        <div class="card">
+          <p>
+            I am an engineering student at Chandigarh University, Mohali,
+            with an interest in software development, web technologies and AI.
+            I am developing my technical foundation through coursework and
+            hands-on projects. My goal is to keep learning, build useful
+            applications and grow as a software developer.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">What I'm learning</p>
+          <h2>Technical <span class="accent">Skills</span></h2>
+          <p>My current learning toolkit and development tools.</p>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <h3>Web Development</h3>
+            <p>Building and styling web pages.</p>
+            <div class="skills">
+              <span class="skill">HTML</span>
+              <span class="skill">CSS</span>
+              <span class="skill">JavaScript basics</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Programming</h3>
+            <p>Developing programming fundamentals and logical thinking.</p>
+            <div class="skills">
+              <span class="skill">C/C++ fundamentals</span>
+              <span class="skill">Problem Solving</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Developer Tools</h3>
+            <p>Tools used to write, manage and publish projects.</p>
+            <div class="skills">
+              <span class="skill">VS Code</span>
+              <span class="skill">GitHub</span>
+              <span class="skill">GitHub Pages</span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Areas of Interest</h3>
+            <p>Topics I want to explore and improve in.</p>
+            <div class="skills">
+              <span class="skill">Software Development</span>
+              <span class="skill">Web Development</span>
+              <span class="skill">Artificial Intelligence</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Things I've built</p>
+          <h2>Featured <span class="accent">Projects</span></h2>
+          <p>Explore my work and the skills I'm developing through projects.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <h3>Personal Portfolio Website</h3>
+            <p>
+              A personal website showcasing my profile, technical interests,
+              projects and certificates, published with GitHub Pages.
+            </p>
+            <a class="card-link"
+               href="https://github.com/harshbuilds-AI-dev/harshbuilds-AI-dev.github.io"
+               target="_blank" rel="noopener noreferrer">View Source Code ↗</a>
+          </article>
+
+          <article class="card">
+            <h3>Harsh Notes App</h3>
+            <p>
+              A browser-based notes application built to practise front-end
+              development, with saving and deleting notes using local storage.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>AI Chat Assistant</h3>
+            <p>
+              An area of interest for exploring conversational interfaces
+              and AI-powered applications.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Task Flow & Weather Dashboard</h3>
+            <p>
+              Project concepts for practising task organisation, interface
+              design and displaying useful information.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="certificates">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Learning milestones</p>
+          <h2>Training & <span class="accent">Certificates</span></h2>
+          <p>Open the certificate files uploaded to this repository.</p>
+        </div>
+
+        <div class="certificate-list">
+          <div class="certificate">
+            <div>
+              <h3>Corizo Training Certificate</h3>
+              <p>Training certificate document</p>
+            </div>
+            <a href="./Harsh_Training_Certificate_Corizo_certificate.pdf"
+               target="_blank" rel="noopener noreferrer">View ↗</a>
+          </div>
+
+          <div class="certificate">
+            <div>
+              <h3>Course Certificates Collection</h3>
+              <p>Combined course document</p>
+            </div>
+            <a href="./5%20courses.pdf" target="_blank"
+               rel="noopener noreferrer">View ↗</a>
+          </div>
+
+          <div class="certificate">
+            <div><h3>Certificate 1</h3><p>Course certificate</p></div>
+            <a href="./c1.pdf" target="_blank" rel="noopener noreferrer">View ↗</a>
+          </div>
+
+          <div class="certificate">
+            <div><h3>Certificate 2</h3><p>Course certificate</p></div>
+            <a href="./c2.pdf" target="_blank" rel="noopener noreferrer">View ↗</a>
+          </div>
+
+          <div class="certificate">
+            <div><h3>Certificate 3</h3><p>Course certificate</p></div>
+            <a href="./c3.pdf" target="_blank" rel="noopener noreferrer">View ↗</a>
+          </div>
+
+          <div class="certificate">
+            <div><h3>Certificate 4</h3><p>Course certificate</p></div>
+            <a href="./c4.pdf" target="_blank" rel="noopener noreferrer">View ↗</a>
+          </div>
+
+          <div class="certificate">
+            <div><h3>Certificate 5</h3><p>Course certificate</p></div>
+            <a href="./c5.pdf" target="_blank" rel="noopener noreferrer">View ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Let's connect</p>
+          <h2>Contact <span class="accent">Me</span></h2>
+        </div>
+
+        <div class="card contact-card">
+          <h3>Have an opportunity or idea?</h3>
+          <p>Feel free to connect with me.</p>
+          <p>
+            Email:
+            <a class="accent" href="mailto:dhankharh74@gmail.com">
+              dhankharh74@gmail.com
+            </a>
+          </p>
+          <div class="buttons" style="justify-content:center;">
+            <a class="btn" href="mailto:dhankharh74@gmail.com">Email Me ↗</a>
+            <a class="btn btn-outline"
+               href="https://www.linkedin.com/in/harsh-dhankhar-4aa6b7420/"
+               target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            <a class="btn btn-outline"
+               href="https://github.com/harshbuilds-AI-dev"
+               target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer>
-    <a class="logo" href="#home">Harsh<span>.ai</span></a>
-    <p>Designed and built with curiosity by Harsh.</p>
-    <p class="copyright">© 2026 Harsh.ai Developer</p>
+    <div class="container">
+      © <span id="year"></span> Harsh Dhankhar · Built with HTML & CSS
+    </div>
   </footer>
 
+  <script>
+    const words = [
+      "Engineering Student",
+      "Aspiring Software Developer",
+      "Web Development Learner",
+      "Future Tech Builder"
+    ];
+
+    const typingElement = document.getElementById("typing");
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (reducedMotion) {
+      typingElement.textContent = words[0];
+    } else {
+      let wordIndex = 0;
+      let charIndex = 0;
+      let deleting = false;
+
+      function typeEffect() {
+        const word = words[wordIndex];
+
+        typingElement.textContent = word.substring(0, charIndex);
+
+        if (!deleting && charIndex < word.length) {
+          charIndex++;
+          setTimeout(typeEffect, 85);
+        } else if (!deleting) {
+          deleting = true;
+          setTimeout(typeEffect, 1100);
+        } else if (charIndex > 0) {
+          charIndex--;
+          setTimeout(typeEffect, 40);
+        } else {
+          deleting = false;
+          wordIndex = (wordIndex + 1) % words.length;
+          setTimeout(typeEffect, 250);
+        }
+      }
+
+      typeEffect();
+    }
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
 </body>
 </html>

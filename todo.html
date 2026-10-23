@@ -1,59 +1,169 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Harsh To-Do App</title>
-    <style>
-body{
-    background-color: lightblue;
-    text-align: center;
-    font-family: Arial;
-}
-
-input{
-    padding: 10px;
-}
-
-button{
-    padding: 10px;
-}
-
-li{
-    margin: 10px;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07111f">
+  <title>To-Do List | Harsh</title>
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    .todo-wrap { max-width: 720px; margin: 65px auto; padding: 0 20px; }
+    .todo-box { padding: 25px; background: var(--panel); border: 1px solid var(--border); border-radius: 18px; }
+    .todo-form { display: flex; gap: 10px; margin: 25px 0; }
+    .todo-form input { min-width: 0; flex: 1; padding: 14px; background: #07111f; border: 1px solid var(--border); border-radius: 10px; color: white; font: inherit; }
+    .todo-form input:focus { outline: 1px solid var(--blue); }
+    .todo-form button, .filter-btn, .delete-btn { cursor: pointer; font: inherit; }
+    .todo-form button { border: 0; border-radius: 10px; padding: 10px 17px; font-weight: 800; background: var(--blue); color: #07111f; }
+    .todo-stats { display: flex; justify-content: space-between; gap: 10px; color: var(--muted); font-size: 12px; margin-bottom: 20px; }
+    .todo-filters { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
+    .filter-btn { color: var(--muted); background: transparent; border: 1px solid var(--border); padding: 7px 12px; border-radius: 8px; font-size: 12px; }
+    .filter-btn.active { color: var(--blue); border-color: var(--blue); }
+    .task-list { list-style: none; padding: 0; margin: 0; }
+    .task { display: flex; align-items: center; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--border); }
+    .task input { accent-color: var(--blue); width: 17px; height: 17px; }
+    .task-text { flex: 1; overflow-wrap: anywhere; }
+    .task.done .task-text { text-decoration: line-through; color: var(--muted); }
+    .delete-btn { background: transparent; color: #fb7185; border: 1px solid var(--border); border-radius: 7px; padding: 5px 9px; }
+    .empty { text-align: center; padding: 28px 0; color: var(--muted); font-size: 13px; }
+    @media(max-width:450px) { .todo-form { flex-wrap: wrap; } .todo-form input { flex-basis: 100%; } }
+  </style>
 </head>
-
 <body>
+  <header class="navbar">
+    <a class="logo" href="./index.html">H<span>.</span></a>
+    <nav><a href="./index.html">← Portfolio</a></nav>
+  </header>
 
-    <h1>Harsh To-Do List</h1>
+  <main class="todo-wrap">
+    <span class="eyebrow">PERSONAL PRODUCTIVITY</span>
+    <h1 style="font-size:clamp(38px,7vw,58px)">Get things <span class="gradient-text">done.</span></h1>
+    <p>One task at a time. Keep your day organised.</p>
 
-    <input type="text" id="task" placeholder="Task likho">
+    <section class="todo-box">
+      <form class="todo-form" id="taskForm">
+        <input id="taskInput" type="text" maxlength="200" placeholder="What needs to get done?" aria-label="New task" required>
+        <button type="submit">+ Add task</button>
+      </form>
 
-    <button onclick="addTask()">Add</button>
+      <div class="todo-stats">
+        <span id="taskCount">0 tasks</span>
+        <span id="doneCount">0 completed</span>
+      </div>
 
-    <ul id="taskList"></ul>
+      <div class="todo-filters">
+        <button class="filter-btn active" data-filter="all">All tasks</button>
+        <button class="filter-btn" data-filter="active">Pending</button>
+        <button class="filter-btn" data-filter="done">Completed</button>
+      </div>
 
-    <script>
-        function addTask() {
+      <ul class="task-list" id="taskList"></ul>
+      <p class="empty" id="emptyMessage">Your list is clear. Add your first task!</p>
+    </section>
+  </main>
 
-            let taskText = document.getElementById("task").value;
+  <script>
+    const form = document.getElementById('taskForm');
+    const input = document.getElementById('taskInput');
+    const list = document.getElementById('taskList');
+    const empty = document.getElementById('emptyMessage');
+    const taskCount = document.getElementById('taskCount');
+    const doneCount = document.getElementById('doneCount');
+    const filters = document.querySelectorAll('.filter-btn');
 
-            if(taskText === "") {
-                alert("Pehle task likho!");
-                return;
-            }
+    let tasks = [];
+    try {
+      const saved = JSON.parse(localStorage.getItem('harsh-todo-tasks') || '[]');
+      if (Array.isArray(saved)) tasks = saved.filter(t =>
+        t && typeof t.text === 'string' && typeof t.done === 'boolean'
+      );
+    } catch (error) {
+      tasks = [];
+    }
 
-            let li = document.createElement("li");
+    let currentFilter = 'all';
 
-            li.innerHTML =
-                taskText +
-                ' <button onclick="this.parentElement.remove()">Delete</button>';
+    function saveTasks() {
+      try {
+        localStorage.setItem('harsh-todo-tasks', JSON.stringify(tasks));
+      } catch (error) {
+        alert('Could not save tasks in this browser. Check browser storage settings.');
+      }
+    }
 
-            document.getElementById("taskList").appendChild(li);
+    function renderTasks() {
+      list.replaceChildren();
+      const visible = tasks.filter(task =>
+        currentFilter === 'all' ||
+        (currentFilter === 'active' && !task.done) ||
+        (currentFilter === 'done' && task.done)
+      );
 
-            document.getElementById("task").value = "";
-        }
-    </script>
+      visible.forEach(task => {
+        const li = document.createElement('li');
+        li.className = 'task' + (task.done ? ' done' : '');
 
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.checked = task.done;
+        checkbox.setAttribute('aria-label', 'Mark task complete');
+        checkbox.addEventListener('change', () => {
+          task.done = checkbox.checked;
+          saveTasks();
+          renderTasks();
+        });
+
+        const text = document.createElement('span');
+        text.className = 'task-text';
+        text.textContent = task.text;
+
+        const del = document.createElement('button');
+        del.className = 'delete-btn';
+        del.textContent = 'Delete';
+        del.setAttribute('aria-label', 'Delete task');
+        del.addEventListener('click', () => {
+          tasks = tasks.filter(t => t.id !== task.id);
+          saveTasks();
+          renderTasks();
+        });
+
+        li.append(checkbox, text, del);
+        list.append(li);
+      });
+
+      const pending = tasks.filter(t => !t.done).length;
+      taskCount.textContent = tasks.length + (tasks.length === 1 ? ' task' : ' tasks');
+      doneCount.textContent = (tasks.length - pending) + ' completed';
+      empty.hidden = visible.length !== 0;
+      empty.textContent = tasks.length === 0
+        ? 'Your list is clear. Add your first task!'
+        : 'No tasks in this filter.';
+    }
+
+    form.addEventListener('submit', event => {
+      event.preventDefault();
+      const text = input.value.trim();
+      if (!text) return;
+
+      tasks.unshift({
+        id: Date.now().toString() + Math.random().toString(36).slice(2),
+        text,
+        done: false
+      });
+      saveTasks();
+      input.value = '';
+      renderTasks();
+      input.focus();
+    });
+
+    filters.forEach(button => {
+      button.addEventListener('click', () => {
+        currentFilter = button.dataset.filter;
+        filters.forEach(b => b.classList.toggle('active', b === button));
+        renderTasks();
+      });
+    });
+
+    renderTasks();
+  </script>
 </body>
 </html>

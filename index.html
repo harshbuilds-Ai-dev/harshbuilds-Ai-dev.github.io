@@ -3,143 +3,238 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Harsh.ai Developer Portfolio">
-  <title>Harsh.ai Developer | Portfolio</title>
+  <meta name="description" content="Harsh's personal developer portfolio, projects, skills and certificates.">
+  <title>Harsh.ai | Developer Portfolio</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    * { box-sizing: border-box; scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b1020;
+      color: #f4f7ff;
+      line-height: 1.6;
+    }
+    a { color: #65d8ff; text-decoration: none; }
+    a:hover { color: #ffffff; }
+    header {
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      background: #111a30;
+      border-bottom: 1px solid #27334d;
+    }
+    .logo { font-size: 22px; font-weight: bold; color: #65d8ff; }
+    nav { display: flex; flex-wrap: wrap; gap: 16px; }
+    nav a { color: #f4f7ff; }
+    .hero {
+      padding: 85px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 35px;
+      flex-wrap: wrap;
+      background: linear-gradient(135deg, #101a35, #17264a);
+    }
+    .hero-content { flex: 1 1 280px; }
+    .hero h1 { font-size: clamp(36px, 6vw, 62px); line-height: 1.1; margin: 10px 0; }
+    .accent { color: #65d8ff; }
+    .hero p { color: #c5cee0; max-width: 600px; }
+    .profile {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #65d8ff;
+      background: #1c2944;
+    }
+    .btn {
+      display: inline-block;
+      padding: 11px 18px;
+      border-radius: 8px;
+      background: #65d8ff;
+      color: #08101e;
+      font-weight: bold;
+      margin: 8px 8px 0 0;
+    }
+    section { padding: 55px 7%; }
+    section h2 { font-size: 30px; margin-top: 0; }
+    .muted { color: #bdc8dd; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+    .card {
+      background: #131d33;
+      border: 1px solid #283652;
+      border-radius: 14px;
+      padding: 22px;
+      overflow-wrap: anywhere;
+    }
+    .card h3 { margin-top: 0; }
+    .skills { display: flex; flex-wrap: wrap; gap: 10px; }
+    .skill {
+      padding: 8px 13px;
+      border: 1px solid #344765;
+      border-radius: 20px;
+      background: #131d33;
+    }
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #bdc8dd;
+      background: #111a30;
+    }
+    @media (max-width: 600px) {
+      header { align-items: flex-start; flex-direction: column; }
+      .hero { padding-top: 55px; }
+      .profile { width: 165px; height: 165px; }
+    }
+  </style>
 </head>
 <body>
 
-<header class="navbar">
-  <a href="#home" class="logo">Harsh<span>.ai</span></a>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#certificates">Certificates</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+  <header>
+    <div class="logo">Harsh.ai</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#certificates">Certificates</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-<main>
-<section id="home" class="hero">
-  <div class="hero-text">
-    <p class="eyebrow">WELCOME TO MY PORTFOLIO</p>
-    <h1>Hi, I'm <span>Harsh</span></h1>
-    <h2>Aspiring Developer & AI Enthusiast</h2>
-    <p>I'm an engineering student learning programming, web development and artificial intelligence. I enjoy learning new skills and building projects.</p>
-    <div class="hero-buttons">
-      <a class="btn primary" href="#projects">Explore Projects</a>
-      <a class="btn secondary" href="#contact">Contact Me</a>
-    </div>
-  </div>
-  <div class="hero-image">
-    <img src="profile.jpg" alt="Harsh profile photo">
-  </div>
-</section>
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <p class="accent">WELCOME TO MY PORTFOLIO</p>
+        <h1>Hi, I'm <span class="accent">Harsh</span></h1>
+        <h2>Aspiring Developer</h2>
+        <p>
+          I am a first-year engineering student learning programming,
+          software development and artificial intelligence. I enjoy
+          building projects and improving my technical skills.
+        </p>
+        <a class="btn" href="#projects">Explore My Projects</a>
+        <a class="btn" href="#certificates">View Certificates</a>
+      </div>
+      <img class="profile" src="./profile.jpg" alt="Harsh's profile photo">
+    </section>
 
-<section id="about" class="section">
-  <p class="eyebrow">GET TO KNOW ME</p>
-  <h2>About Me</h2>
-  <div class="about-card">
-    <p>Hello! I'm Harsh, an engineering student interested in software development, artificial intelligence and technology.</p>
-    <p>I'm improving my programming skills and building a strong foundation for my future career through learning and practice.</p>
-  </div>
-</section>
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="card">
+        <p class="muted">
+          I am an engineering student focused on learning coding,
+          problem-solving and modern technologies. My goal is to develop
+          useful projects, gain practical experience and grow as a
+          software developer.
+        </p>
+      </div>
+    </section>
 
-<section id="skills" class="section">
-  <p class="eyebrow">WHAT I'M LEARNING</p>
-  <h2>My Skills</h2>
-  <div class="skills-grid">
-    <div class="skill-card"><h3>HTML</h3><p>Web structure</p></div>
-    <div class="skill-card"><h3>CSS</h3><p>Web design</p></div>
-    <div class="skill-card"><h3>C / C++</h3><p>Programming basics</p></div>
-    <div class="skill-card"><h3>Python</h3><p>Learning programming</p></div>
-    <div class="skill-card"><h3>Artificial Intelligence</h3><p>Exploring AI</p></div>
-    <div class="skill-card"><h3>GitHub</h3><p>Version control basics</p></div>
-  </div>
-</section>
+    <section id="skills">
+      <h2>My Skills</h2>
+      <div class="skills">
+        <span class="skill">C Programming — Learning</span>
+        <span class="skill">HTML</span>
+        <span class="skill">CSS</span>
+        <span class="skill">Problem Solving</span>
+        <span class="skill">Artificial Intelligence — Learning</span>
+        <span class="skill">GitHub</span>
+      </div>
+    </section>
 
-<section id="projects" class="section">
-  <p class="eyebrow">MY LEARNING JOURNEY</p>
-  <h2>Projects</h2>
-  <div class="projects-grid">
-    <article class="project-card">
-      <h3>Notes App</h3>
-      <p>A simple app for writing and saving notes.</p>
-      <span class="status">Learning Project</span>
-    </article>
-    <article class="project-card">
-      <h3>AI Chat Assistant</h3>
-      <p>An idea for exploring AI-powered chat.</p>
-      <span class="status">Planned</span>
-    </article>
-    <article class="project-card">
-      <h3>Weather Dashboard</h3>
-      <p>A planned project for showing weather information.</p>
-      <span class="status">Planned</span>
-    </article>
-  </div>
-</section>
+    <section id="projects">
+      <h2>My Projects</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Personal Notes App</h3>
+          <p class="muted">A simple notes app built while learning web development.</p>
+          <span class="accent">HTML · CSS · JavaScript</span>
+        </article>
+        <article class="card">
+          <h3>Developer Portfolio</h3>
+          <p class="muted">This website showcases my learning journey, projects and certificates.</p>
+          <span class="accent">HTML · CSS · GitHub Pages</span>
+        </article>
+        <article class="card">
+          <h3>Future Projects</h3>
+          <p class="muted">I am continuing to learn and plan to build more useful software projects.</p>
+          <span class="accent">Learning in Progress</span>
+        </article>
+      </div>
+    </section>
 
-<section id="certificates" class="section">
-  <p class="eyebrow">LEARNING & ACHIEVEMENTS</p>
-  <h2>My Certificates</h2>
-  <p class="section-intro">Explore my certificates and training records.</p>
-  <div class="projects-grid">
+    <section id="certificates">
+      <h2>My Certificates</h2>
+      <p class="muted">Open a certificate using the button below each card.</p>
+      <div class="grid">
+        <article class="card">
+          <h3>Certificate 1</h3>
+          <p class="muted">Courses Certificate</p>
+          <a class="btn" href="./5courses.pdf" target="_blank" rel="noopener">View Certificate</a>
+        </article>
 
-    <article class="project-card certificate-card">
-      <h3>5 Courses Certificate</h3>
-      <p>Course completion record.</p>
-      <a class="btn primary" href="5courses.pdf" target="_blank" rel="noopener">View Certificate ↗</a>
-    </article>
+        <article class="card">
+          <h3>Certificate 2</h3>
+          <p class="muted">Corizo Training Certificate</p>
+          <a class="btn" href="./Harsh_Training_Certificate_Corizo_certificate.pdf" target="_blank" rel="noopener">View Certificate</a>
+        </article>
 
-    <article class="project-card certificate-card">
-      <h3>Corizo Training Certificate</h3>
-      <p>Training certificate.</p>
-      <a class="btn primary" href="Harsh_Training_Certificate_Corizo_certificate" target="_blank" rel="noopener">View Certificate ↗</a>
-    </article>
+        <article class="card">
+          <h3>Certificate 3</h3>
+          <p class="muted">Certificate document</p>
+          <a class="btn" href="./c1.pdf" target="_blank" rel="noopener">View Certificate</a>
+        </article>
 
-    <article class="project-card certificate-card">
-      <h3>Certificate 1</h3>
-      <a class="btn primary" href="c1.pdf" target="_blank" rel="noopener">View Certificate ↗</a>
-    </article>
+        <article class="card">
+          <h3>Certificate 4</h3>
+          <p class="muted">Certificate document</p>
+          <a class="btn" href="./c2.pdf" target="_blank" rel="noopener">View Certificate</a>
+        </article>
 
-    <article class="project-card certificate-card">
-      <h3>Certificate 2</h3>
-      <a class="btn primary" href="c2.pdf" target="_blank" rel="noopener">View Certificate ↗</a>
-    </article>
+        <article class="card">
+          <h3>Certificate 5</h3>
+          <p class="muted">Certificate document</p>
+          <a class="btn" href="./c3.pdf" target="_blank" rel="noopener">View Certificate</a>
+        </article>
 
-    <article class="project-card certificate-card">
-      <h3>Certificate 3</h3>
-      <a class="btn primary" href="c3.pdf" target="_blank" rel="noopener">View Certificate ↗</a>
-    </article>
+        <article class="card">
+          <h3>Certificate 6</h3>
+          <p class="muted">Certificate document</p>
+          <a class="btn" href="./c4.pdf" target="_blank" rel="noopener">View Certificate</a>
+        </article>
 
-    <article class="project-card certificate-card">
-      <h3>Certificate 4</h3>
-      <a class="btn primary" href="c4.pdf" target="_blank" rel="noopener">View Certificate ↗</a>
-    </article>
+        <article class="card">
+          <h3>Certificate 7</h3>
+          <p class="muted">Certificate document</p>
+          <a class="btn" href="./c5.pdf" target="_blank" rel="noopener">View Certificate</a>
+        </article>
+      </div>
+    </section>
 
-    <article class="project-card certificate-card">
-      <h3>Certificate 5</h3>
-      <a class="btn primary" href="c5.pdf" target="_blank" rel="noopener">View Certificate ↗</a>
-    </article>
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <div class="card">
+        <p class="muted">
+          Interested in connecting or collaborating on a project?
+          You can contact me using the links below.
+        </p>
+        <a href="https://github.com/harshbuilds-AI-dev" target="_blank" rel="noopener">GitHub Profile</a>
+      </div>
+    </section>
+  </main>
 
-  </div>
-</section>
-
-<section id="contact" class="section">
-  <p class="eyebrow">LET'S CONNECT</p>
-  <h2>Contact Me</h2>
-  <div class="about-card contact-card">
-    <p>Thanks for visiting my portfolio!</p>
-    <a class="btn primary" href="https://github.com/harshbuilds-AI-dev" target="_blank" rel="noopener">Visit My GitHub ↗</a>
-  </div>
-</section>
-</main>
-
-<footer>
-  <p>© 2026 Harsh.ai Developer | Built while learning</p>
-</footer>
+  <footer>
+    <p>© 2026 Harsh.ai Developer Portfolio</p>
+    <p>Built while learning and creating.</p>
+  </footer>
 
 </body>
 </html>

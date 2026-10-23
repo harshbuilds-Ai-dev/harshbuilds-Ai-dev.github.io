@@ -1,389 +1,427 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Harsh's developer portfolio, projects, skills and certificates.">
-  <title>Harsh.ai | Developer Portfolio</title>
-  <link rel="stylesheet" href="./style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harsh | Personal Portfolio</title>
+    <meta name="description" content="Harsh's personal portfolio showcasing skills, projects and certificates.">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0b1020;
-      color: #f4f7ff;
-      line-height: 1.6;
-    }
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b1120;
+            color: #f1f5f9;
+            line-height: 1.7;
+        }
 
-    a {
-      color: #65d8ff;
-      text-decoration: none;
-    }
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
 
-    a:hover {
-      color: #ffffff;
-    }
+        header {
+            background: #111827;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            border-bottom: 1px solid #263449;
+        }
 
-    header {
-      padding: 18px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 14px;
-      background: #111a30;
-      border-bottom: 1px solid #27334d;
-    }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #38bdf8;
+        }
 
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-      color: #65d8ff;
-    }
+        nav {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
 
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
+        nav a:hover {
+            color: #38bdf8;
+        }
 
-    nav a {
-      color: #f4f7ff;
-    }
+        section {
+            padding: 65px 8%;
+        }
 
-    .hero {
-      padding: 80px 7%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 35px;
-      flex-wrap: wrap;
-      background: linear-gradient(135deg, #101a35, #17264a);
-    }
+        .hero {
+            min-height: 75vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 45px;
+            flex-wrap: wrap;
+            text-align: left;
+        }
 
-    .hero-content {
-      flex: 1 1 280px;
-    }
+        .hero-text {
+            flex: 1;
+            min-width: 260px;
+        }
 
-    .hero h1 {
-      font-size: clamp(36px, 6vw, 62px);
-      line-height: 1.15;
-      margin: 10px 0;
-    }
+        .hero h1 {
+            font-size: clamp(36px, 6vw, 58px);
+            line-height: 1.2;
+            margin: 12px 0;
+        }
 
-    .accent {
-      color: #65d8ff;
-    }
+        .hero h1 span,
+        .highlight {
+            color: #38bdf8;
+        }
 
-    .muted {
-      color: #bdc8dd;
-    }
+        .hero p {
+            color: #cbd5e1;
+            margin: 15px 0 25px;
+        }
 
-    .profile {
-      width: 220px;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 4px solid #65d8ff;
-      background: #1c2944;
-    }
+        .profile {
+            width: 230px;
+            height: 230px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #38bdf8;
+            box-shadow: 0 0 30px #0ea5e955;
+        }
 
-    .btn {
-      display: inline-block;
-      padding: 11px 18px;
-      border-radius: 8px;
-      background: #65d8ff;
-      color: #08101e;
-      font-weight: bold;
-      margin: 8px 8px 0 0;
-    }
+        .btn {
+            display: inline-block;
+            background: #0284c7;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 8px;
+            margin: 5px 5px 5px 0;
+            font-weight: bold;
+        }
 
-    .btn:hover {
-      background: #ffffff;
-      color: #08101e;
-    }
+        .btn:hover {
+            background: #0369a1;
+        }
 
-    section {
-      padding: 55px 7%;
-    }
+        .secondary {
+            background: transparent;
+            border: 1px solid #38bdf8;
+        }
 
-    section h2 {
-      font-size: 30px;
-      margin-top: 0;
-    }
+        h2 {
+            font-size: 32px;
+            margin-bottom: 22px;
+            color: #38bdf8;
+        }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-    }
+        .section-text {
+            max-width: 800px;
+            color: #cbd5e1;
+        }
 
-    .card {
-      background: #131d33;
-      border: 1px solid #283652;
-      border-radius: 14px;
-      padding: 22px;
-      overflow-wrap: anywhere;
-    }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+        }
 
-    .card h3 {
-      margin-top: 0;
-    }
+        .card {
+            background: #111c30;
+            border: 1px solid #263449;
+            padding: 22px;
+            border-radius: 12px;
+            overflow-wrap: anywhere;
+        }
 
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
+        .card h3 {
+            margin-bottom: 10px;
+            color: #e0f2fe;
+        }
 
-    .skill {
-      padding: 8px 13px;
-      border: 1px solid #344765;
-      border-radius: 20px;
-      background: #131d33;
-    }
+        .card p {
+            color: #cbd5e1;
+            margin-bottom: 12px;
+        }
 
-    footer {
-      text-align: center;
-      padding: 25px;
-      color: #bdc8dd;
-      background: #111a30;
-    }
+        .tag {
+            display: inline-block;
+            background: #172c45;
+            color: #7dd3fc;
+            border-radius: 20px;
+            padding: 4px 10px;
+            margin: 4px;
+            font-size: 14px;
+        }
 
-    @media (max-width: 600px) {
-      header {
-        align-items: flex-start;
-        flex-direction: column;
-      }
+        .certificate-link {
+            display: inline-block;
+            margin-top: 8px;
+            color: #38bdf8;
+            font-weight: bold;
+        }
 
-      .hero {
-        padding-top: 55px;
-      }
+        .certificate-link:hover {
+            text-decoration: underline;
+        }
 
-      .profile {
-        width: 165px;
-        height: 165px;
-      }
-    }
-  </style>
+        .contact-links a {
+            color: #7dd3fc;
+            margin-right: 15px;
+            overflow-wrap: anywhere;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #111827;
+            color: #94a3b8;
+            border-top: 1px solid #263449;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 18px 5%;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            section {
+                padding: 45px 6%;
+            }
+
+            .hero {
+                text-align: center;
+            }
+
+            .profile {
+                width: 180px;
+                height: 180px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">Harsh.ai</div>
-
+<header>
+    <div class="logo">Harsh.dev</div>
     <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#certificates">Certificates</a>
-      <a href="#contact">Contact</a>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#contact">Contact</a>
     </nav>
-  </header>
+</header>
 
-  <main>
-
-    <section class="hero" id="home">
-      <div class="hero-content">
-        <p class="accent">WELCOME TO MY PORTFOLIO</p>
-        <h1>Hi, I'm <span class="accent">Harsh</span></h1>
-        <h2>Aspiring Developer</h2>
-
-        <p class="muted">
-          I am an engineering student learning programming,
-          software development and artificial intelligence.
-          I enjoy building projects and improving my technical skills.
+<section class="hero" id="home">
+    <div class="hero-text">
+        <p class="highlight">WELCOME TO MY PORTFOLIO</p>
+        <h1>Hi, I'm <span>Harsh</span></h1>
+        <h3>Aspiring Software Developer</h3>
+        <p>
+            I am an engineering student learning programming,
+            web development and modern technologies.
+            I enjoy building projects and improving my technical skills.
         </p>
+        <a class="btn" href="#projects">View My Projects</a>
+        <a class="btn secondary" href="#contact">Contact Me</a>
+    </div>
 
-        <a class="btn" href="#projects">Explore My Projects</a>
-        <a class="btn" href="#certificates">View Certificates</a>
-      </div>
+    <div>
+        <img class="profile"
+             src="./profile.jpg"
+             alt="Harsh's profile photo"
+             onerror="this.style.display='none'">
+    </div>
+</section>
 
-      <img
-        class="profile"
-        src="./profile.jpg"
-        alt="Harsh's profile photo"
-      >
-    </section>
-
-    <section id="about">
-      <h2>About Me</h2>
-
-      <div class="card">
-        <p class="muted">
-          I am a first-year engineering student focused on coding,
-          problem-solving and modern technologies. My goal is to
-          build useful projects, gain practical experience and grow
-          as a software developer.
+<section id="about">
+    <h2>About Me</h2>
+    <div class="section-text">
+        <p>
+            Hello! I am Harsh, an engineering student at Chandigarh University.
+            I am interested in software development, coding, artificial
+            intelligence and building useful digital products.
         </p>
-      </div>
-    </section>
-
-    <section id="skills">
-      <h2>My Skills</h2>
-
-      <div class="skills">
-        <span class="skill">C Programming — Learning</span>
-        <span class="skill">HTML</span>
-        <span class="skill">CSS</span>
-        <span class="skill">Problem Solving</span>
-        <span class="skill">Artificial Intelligence — Learning</span>
-        <span class="skill">GitHub</span>
-      </div>
-    </section>
-
-    <section id="projects">
-      <h2>My Projects</h2>
-
-      <div class="grid">
-        <article class="card">
-          <h3>Personal Notes App</h3>
-          <p class="muted">
-            A simple notes application built while learning
-            web development.
-          </p>
-          <span class="accent">HTML · CSS · JavaScript</span>
-        </article>
-
-        <article class="card">
-          <h3>Developer Portfolio</h3>
-          <p class="muted">
-            This website showcases my learning journey,
-            projects and certificates.
-          </p>
-          <span class="accent">HTML · CSS · GitHub Pages</span>
-        </article>
-
-        <article class="card">
-          <h3>Future Projects</h3>
-          <p class="muted">
-            I am learning new technologies and plan to build
-            more useful software projects.
-          </p>
-          <span class="accent">Learning in Progress</span>
-        </article>
-      </div>
-    </section>
-
-    <section id="certificates">
-      <h2>My Certificates</h2>
-
-      <p class="muted">
-        Open a certificate by clicking its View Certificate button.
-      </p>
-
-      <div class="grid">
-
-        <article class="card">
-          <h3>Courses Certificate</h3>
-          <p class="muted">5 Courses</p>
-          <a
-            class="btn"
-            href="./5%20courses.pdf"
-            target="_blank"
-            rel="noopener"
-          >View Certificate</a>
-        </article>
-
-        <article class="card">
-          <h3>Corizo Training Certificate</h3>
-          <p class="muted">Training Certificate</p>
-          <a
-            class="btn"
-            href="./Harsh_Training_Certificate_Corizo_certificate.pdf"
-            target="_blank"
-            rel="noopener"
-          >View Certificate</a>
-        </article>
-
-        <article class="card">
-          <h3>Certificate 3</h3>
-          <p class="muted">Certificate document</p>
-          <a
-            class="btn"
-            href="./c1.pdf"
-            target="_blank"
-            rel="noopener"
-          >View Certificate</a>
-        </article>
-
-        <article class="card">
-          <h3>Certificate 4</h3>
-          <p class="muted">Certificate document</p>
-          <a
-            class="btn"
-            href="./c2.pdf"
-            target="_blank"
-            rel="noopener"
-          >View Certificate</a>
-        </article>
-
-        <article class="card">
-          <h3>Certificate 5</h3>
-          <p class="muted">Certificate document</p>
-          <a
-            class="btn"
-            href="./c3.pdf"
-            target="_blank"
-            rel="noopener"
-          >View Certificate</a>
-        </article>
-
-        <article class="card">
-          <h3>Certificate 6</h3>
-          <p class="muted">Certificate document</p>
-          <a
-            class="btn"
-            href="./c4.pdf"
-            target="_blank"
-            rel="noopener"
-          >View Certificate</a>
-        </article>
-
-        <article class="card">
-          <h3>Certificate 7</h3>
-          <p class="muted">Certificate document</p>
-          <a
-            class="btn"
-            href="./c5.pdf"
-            target="_blank"
-            rel="noopener"
-          >View Certificate</a>
-        </article>
-
-      </div>
-    </section>
-
-    <section id="contact">
-      <h2>Contact Me</h2>
-
-      <div class="card">
-        <p class="muted">
-          Interested in connecting or collaborating on a project?
-          Visit my GitHub profile.
+        <p>
+            My goal is to strengthen my programming fundamentals,
+            create practical projects and prepare for software engineering
+            internships and placement opportunities.
         </p>
+    </div>
+</section>
 
-        <a
-          href="https://github.com/harshbuilds-AI-dev"
-          target="_blank"
-          rel="noopener"
-        >GitHub Profile</a>
-      </div>
-    </section>
+<section id="skills">
+    <h2>My Skills</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Programming</h3>
+            <span class="tag">C</span>
+            <span class="tag">C++</span>
+            <span class="tag">Python Basics</span>
+        </div>
 
-  </main>
+        <div class="card">
+            <h3>Web Development</h3>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript Basics</span>
+        </div>
 
-  <footer>
-    <p>© 2026 Harsh.ai Developer Portfolio</p>
-    <p>Built while learning and creating.</p>
-  </footer>
+        <div class="card">
+            <h3>Tools</h3>
+            <span class="tag">GitHub</span>
+            <span class="tag">VS Code</span>
+            <span class="tag">AutoCAD Basics</span>
+        </div>
+    </div>
+</section>
+
+<section id="projects">
+    <h2>My Projects</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Personal Portfolio Website</h3>
+            <p>
+                A responsive personal website to showcase my skills,
+                projects and certificates.
+            </p>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <br>
+            <a class="certificate-link"
+               href="https://github.com/harshbuilds-AI-dev/harshbuilds-AI-dev.github.io"
+               target="_blank" rel="noopener noreferrer">
+                View on GitHub →
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>Harsh Notes App</h3>
+            <p>
+                A simple notes application created to practise web
+                development and saving notes in the browser.
+            </p>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+        </div>
+
+        <div class="card">
+            <h3>More Projects Coming Soon</h3>
+            <p>
+                I am continuing to learn and build new projects
+                as I improve my programming skills.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="certificates">
+    <h2>My Certificates</h2>
+    <p class="section-text">
+        Here are my certificates and course achievements.
+        Click a link to open the corresponding PDF.
+    </p>
+    <br>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Corizo Training Certificate</h3>
+            <p>Training certificate</p>
+            <a class="certificate-link"
+               href="./Harsh_Training_Certificate_Corizo_certificate.pdf"
+               target="_blank" rel="noopener noreferrer">
+                View Certificate →
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>Course Certificates</h3>
+            <p>Collection of course certificates</p>
+            <a class="certificate-link"
+               href="./5%20courses.pdf"
+               target="_blank" rel="noopener noreferrer">
+                View Certificate →
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>Certificate 1</h3>
+            <a class="certificate-link" href="./c1.pdf"
+               target="_blank" rel="noopener noreferrer">
+                View Certificate →
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>Certificate 2</h3>
+            <a class="certificate-link" href="./c2.pdf"
+               target="_blank" rel="noopener noreferrer">
+                View Certificate →
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>Certificate 3</h3>
+            <a class="certificate-link" href="./c3.pdf"
+               target="_blank" rel="noopener noreferrer">
+                View Certificate →
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>Certificate 4</h3>
+            <a class="certificate-link" href="./c4.pdf"
+               target="_blank" rel="noopener noreferrer">
+                View Certificate →
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>Certificate 5</h3>
+            <a class="certificate-link" href="./c5.pdf"
+               target="_blank" rel="noopener noreferrer">
+                View Certificate →
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact Me</h2>
+    <p class="section-text">
+        I am interested in learning, collaborating and working on
+        useful technology projects.
+    </p>
+    <br>
+
+    <div class="contact-links">
+        <a href="https://github.com/harshbuilds-AI-dev"
+           target="_blank" rel="noopener noreferrer">
+            GitHub Profile
+        </a>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Harsh | Personal Portfolio</p>
+    <p>Built with HTML and CSS</p>
+</footer>
 
 </body>
 </html>

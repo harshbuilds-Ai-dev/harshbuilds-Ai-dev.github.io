@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Harsh To-Do App</title>
+    <style>
+body{
+    background-color: lightblue;
+    text-align: center;
+    font-family: Arial;
+}
+
+input{
+    padding: 10px;
+}
+
+button{
+    padding: 10px;
+}
+
+li{
+    margin: 10px;
+}
+</style>
+</head>
+
+<body>
+
+    <h1>Harsh To-Do List</h1>
+
+    <input type="text" id="task" placeholder="Task likho">
+
+    <button onclick="addTask()">Add</button>
+
+    <ul id="taskList"></ul>
+
+    <script>
+        function addTask() {
+
+            let taskText = document.getElementById("task").value;
+
+            if(taskText === "") {
+                alert("Pehle task likho!");
+                return;
+            }
+
+            let li = document.createElement("li");
+
+            li.innerHTML =
+                taskText +
+                ' <button onclick="this.parentElement.remove()">Delete</button>';
+
+            document.getElementById("taskList").appendChild(li);
+
+            document.getElementById("task").value = "";
+        }
+    </script>
+
+</body>
+</html>

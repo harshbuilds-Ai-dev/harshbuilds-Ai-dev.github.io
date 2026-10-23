@@ -3,14 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#07111f">
-  <meta name="description" content="Harsh Dhankhar — engineering student and aspiring software developer.">
-  <title>Harsh Dhankhar | Portfolio</title>
-  <link rel="stylesheet" href="./style.css">
+  <meta name="description" content="Harsh.ai Developer — personal portfolio showcasing AI projects, web development, skills and certificates.">
+  <meta name="theme-color" content="#080b14">
+  <title>Harsh.ai Developer | AI & Web Developer</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <header class="navbar">
-    <a class="logo" href="#home">HARSH<span>.</span></a>
+    <a class="logo" href="#home">Harsh<span>.ai</span></a>
     <nav>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
@@ -21,160 +22,159 @@
   </header>
 
   <main>
-    <section class="hero container" id="home">
-      <div class="hero-content">
+    <section class="hero" id="home">
+      <div class="hero-text">
         <p class="eyebrow">WELCOME TO MY PORTFOLIO</p>
-        <h1>Hi, I'm <span>Harsh Dhankhar</span></h1>
-        <h2 class="typing">Aspiring Software Developer</h2>
+        <h1>Hi, I'm Harsh.<br>
+          I build <span>digital experiences.</span>
+        </h1>
         <p class="intro">
-          Engineering student at Chandigarh University, learning programming,
-          web development and building useful projects one step at a time.
+          Engineering student, aspiring AI developer and technology enthusiast.
+          I enjoy learning new technologies and turning ideas into useful projects.
         </p>
-        <div class="actions">
-          <a class="btn primary" href="./resume.pdf" target="_blank" rel="noopener">View Resume ↗</a>
-          <a class="btn secondary" href="#projects">Explore Projects</a>
-          <a class="btn secondary" href="#contact">Contact Me</a>
+        <div class="hero-buttons">
+          <a class="btn primary" href="#projects">Explore My Projects ↗</a>
+          <a class="btn secondary" href="#contact">Get In Touch</a>
         </div>
+        <p class="availability">✦ Always learning. Always building.</p>
       </div>
-      <div class="profile-wrap">
-        <img src="./profile.jpg" alt="Harsh Dhankhar" class="profile"
-             onerror="this.style.display='none';this.nextElementSibling.hidden=false">
-        <div class="profile-fallback" hidden>HD</div>
-        <p>Engineering Student · Future Developer</p>
+
+      <div class="profile-card">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <img src="profile.jpg" alt="Harsh's profile photo" class="profile-photo">
+        <h2>Harsh</h2>
+        <p>AI & Web Development Enthusiast</p>
+        <span class="profile-tag">Building my future with code</span>
       </div>
     </section>
 
-    <section class="section container" id="about">
+    <section class="section about" id="about">
       <p class="eyebrow">GET TO KNOW ME</p>
-      <h2>About <span>Me</span></h2>
-      <div class="panel">
-        <p>
-          I'm Harsh Dhankhar, a BE student at Chandigarh University.
-          I'm focused on improving my programming fundamentals, developing
-          practical projects and learning modern development tools.
-        </p>
-        <p><strong>Education:</strong> BE Core, Chandigarh University</p>
-        <p><strong>Current focus:</strong> Programming, web development and problem solving</p>
+      <h2 class="section-title">About <span>Me</span></h2>
+      <p class="section-description">
+        I'm an engineering student developing my skills in programming,
+        web development and artificial intelligence. My goal is to create
+        practical projects, strengthen my problem-solving abilities and
+        keep growing as a developer.
+      </p>
+      <div class="stats">
+        <div class="stat"><strong>01</strong><span>Curious Mind</span></div>
+        <div class="stat"><strong>AI</strong><span>Area of Interest</span></div>
+        <div class="stat"><strong>∞</strong><span>Learning Mindset</span></div>
       </div>
     </section>
 
-    <section class="section container" id="skills">
+    <section class="section" id="skills">
       <p class="eyebrow">WHAT I'M LEARNING</p>
-      <h2>Skills & <span>Tools</span></h2>
-      <div class="grid">
-        <article class="panel">
-          <h3>Web Development</h3>
-          <p>HTML · CSS · JavaScript fundamentals</p>
-        </article>
-        <article class="panel">
+      <h2 class="section-title">My <span>Skills</span></h2>
+      <p class="section-description">
+        Technologies and skills I'm developing through practice and projects.
+      </p>
+      <div class="skill-grid">
+        <article class="skill-card">
+          <div class="skill-icon">⌨</div>
           <h3>Programming</h3>
-          <p>C · C++ fundamentals</p>
+          <p>C, C++ and Python fundamentals</p>
         </article>
-        <article class="panel">
-          <h3>Developer Tools</h3>
-          <p>VS Code · GitHub · GitHub Pages</p>
+        <article class="skill-card">
+          <div class="skill-icon">⌘</div>
+          <h3>Web Development</h3>
+          <p>HTML, CSS and JavaScript</p>
         </article>
-      </div>
-    </section>
-
-    <section class="section container" id="projects">
-      <p class="eyebrow">WHAT I'VE BUILT</p>
-      <h2>Featured <span>Projects</span></h2>
-      <div class="grid">
-        <article class="panel project">
-          <div class="project-icon">📝</div>
-          <h3>Harsh Notes App</h3>
-          <p>Create and manage notes in a simple browser-based app.</p>
-          <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
-          <!-- Change notes.html if your Notes App has a different filename -->
-          <a class="text-link" href="./notes.html">Open Notes App ↗</a>
+        <article class="skill-card">
+          <div class="skill-icon">✧</div>
+          <h3>Artificial Intelligence</h3>
+          <p>Exploring AI tools and applications</p>
         </article>
-
-        <article class="panel project">
-          <div class="project-icon">✅</div>
-          <h3>To-Do List</h3>
-          <p>Organise daily tasks and keep track of your progress.</p>
-          <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
-          <a class="text-link" href="./todo.html">Open To-Do List ↗</a>
-        </article>
-
-        <article class="panel project">
-          <div class="project-icon">💻</div>
-          <h3>Developer Portfolio</h3>
-          <p>A personal website showcasing my skills, projects and learning.</p>
-          <div class="tags"><span>Responsive</span><span>GitHub Pages</span></div>
-          <a class="text-link" href="https://github.com/harshbuilds-AI-dev/harshbuilds-AI-dev.github.io" target="_blank" rel="noopener">View Source ↗</a>
+        <article class="skill-card">
+          <div class="skill-icon">◈</div>
+          <h3>Problem Solving</h3>
+          <p>Logical thinking and coding practice</p>
         </article>
       </div>
     </section>
 
-    <section class="section container" id="certificates">
-      <p class="eyebrow">LEARNING & ACHIEVEMENTS</p>
-      <h2>My <span>Certificates</span></h2>
-      <p class="section-intro">Select a document to open it.</p>
-      <div class="grid certificates">
-        <article class="panel cert">
-          <div><h3>Corizo Training Certificate</h3><p>Training document</p></div>
-          <a class="btn secondary" href="./Harsh_Training_Certificate_Corizo_certificate_pdf" target="_blank" rel="noopener">Open ↗</a>
+    <section class="section projects" id="projects">
+      <p class="eyebrow">WHAT I'M WORKING ON</p>
+      <h2 class="section-title">Featured <span>Projects</span></h2>
+      <p class="section-description">
+        Ideas and applications I'm exploring as I grow my development skills.
+      </p>
+
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-art art-ai">✧</div>
+          <div class="project-content">
+            <span class="project-status">PLANNED / IN PROGRESS</span>
+            <h3>AI Chat Assistant</h3>
+            <p>A chat interface concept for asking questions and exploring AI-powered assistance.</p>
+            <div class="tags"><span>AI</span><span>JavaScript</span><span>Web</span></div>
+            <span class="project-link">Featured Project · Demo coming soon</span>
+          </div>
         </article>
-        <article class="panel cert">
-          <div><h3>5 Courses</h3><p>Course documents</p></div>
-          <a class="btn secondary" href="./5%20courses.pdf" target="_blank" rel="noopener">Open ↗</a>
+
+        <article class="project-card">
+          <div class="project-art art-task">✓</div>
+          <div class="project-content">
+            <span class="project-status">PLANNED / IN PROGRESS</span>
+            <h3>Task Flow</h3>
+            <p>A task management app concept for organizing daily activities and tracking progress.</p>
+            <div class="tags"><span>Productivity</span><span>HTML</span><span>CSS</span></div>
+            <span class="project-link">Featured Project · Demo coming soon</span>
+          </div>
         </article>
-        <article class="panel cert">
-          <div><h3>Certificate 1</h3><p>Course certificate</p></div>
-          <a class="btn secondary" href="./c1.pdf" target="_blank" rel="noopener">Open ↗</a>
-        </article>
-        <article class="panel cert">
-          <div><h3>Certificate 2</h3><p>Course certificate</p></div>
-          <a class="btn secondary" href="./c2.pdf" target="_blank" rel="noopener">Open ↗</a>
-        </article>
-        <article class="panel cert">
-          <div><h3>Certificate 3</h3><p>Course certificate</p></div>
-          <a class="btn secondary" href="./c3.pdf" target="_blank" rel="noopener">Open ↗</a>
-        </article>
-        <article class="panel cert">
-          <div><h3>Certificate 4</h3><p>Course certificate</p></div>
-          <a class="btn secondary" href="./c4.pdf" target="_blank" rel="noopener">Open ↗</a>
-        </article>
-        <article class="panel cert">
-          <div><h3>Certificate 5</h3><p>Course certificate</p></div>
-          <a class="btn secondary" href="./c5.pdf" target="_blank" rel="noopener">Open ↗</a>
+
+        <article class="project-card">
+          <div class="project-art art-weather">☼</div>
+          <div class="project-content">
+            <span class="project-status">PLANNED / IN PROGRESS</span>
+            <h3>Weather Dashboard</h3>
+            <p>A weather dashboard concept for displaying current conditions and forecasts.</p>
+            <div class="tags"><span>API</span><span>JavaScript</span><span>Dashboard</span></div>
+            <span class="project-link">Featured Project · Demo coming soon</span>
+          </div>
         </article>
       </div>
+    </section>
 
-      <div class="resume-panel">
+    <section class="section" id="certificates">
+      <p class="eyebrow">MY LEARNING JOURNEY</p>
+      <h2 class="section-title">Certificates & <span>Achievements</span></h2>
+      <p class="section-description">
+        A place to showcase completed courses, certifications and achievements.
+      </p>
+
+      <div class="certificate-box">
+        <div class="certificate-icon">▤</div>
         <div>
-          <h3>Want to know more about me?</h3>
-          <p>View or download my resume.</p>
-        </div>
-        <div class="actions">
-          <a class="btn primary" href="./resume.pdf" target="_blank" rel="noopener">View Resume PDF ↗</a>
-          <a class="btn secondary" href="./resume-editable.docx" download>Editable Resume DOCX ↓</a>
+          <h3>Certificates coming soon</h3>
+          <p>My verified course certificates and achievements will be added here.</p>
         </div>
       </div>
+      <p class="small-note">
+        Add your real certificates to this section when ready.
+      </p>
     </section>
 
-    <section class="section container" id="contact">
-      <div class="contact-panel">
-        <p class="eyebrow">LET'S CONNECT</p>
-        <h2>Let's build something <span>useful</span>.</h2>
-        <p>Feel free to connect with me about projects, learning and development.</p>
-        <div class="actions">
-          <a class="btn primary" href="mailto:dhankharh74@gmail.com">Email Me ↗</a>
-          <a class="btn secondary" href="https://github.com/harshbuilds-AI-dev" target="_blank" rel="noopener">GitHub ↗</a>
-          <a class="btn secondary" href="https://www.linkedin.com/in/harsh-dhankhar-4aa6b7420/" target="_blank" rel="noopener">LinkedIn ↗</a>
-        </div>
-      </div>
+    <section class="section contact" id="contact">
+      <p class="eyebrow">LET'S CONNECT</p>
+      <h2 class="section-title">Have an idea? <span>Let's talk.</span></h2>
+      <p class="section-description">
+        Interested in technology, AI projects or collaborating on something useful?
+        Feel free to connect.
+      </p>
+      <a class="btn primary" href="https://github.com/harshbuilds-AI-dev" target="_blank" rel="noopener noreferrer">
+        Visit My GitHub ↗
+      </a>
     </section>
   </main>
 
   <footer>
-    <p>© <span id="year"></span> Harsh Dhankhar · Built with care.</p>
+    <a class="logo" href="#home">Harsh<span>.ai</span></a>
+    <p>Designed and built with curiosity by Harsh.</p>
+    <p class="copyright">© 2026 Harsh.ai Developer</p>
   </footer>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>

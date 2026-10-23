@@ -7,9 +7,7 @@
   --border: rgba(148, 180, 220, .17);
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 html {
   scroll-behavior: smooth;
@@ -24,15 +22,8 @@ body {
   line-height: 1.7;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-p {
-  color: var(--muted);
-  margin-top: 8px;
-}
+a { color: inherit; text-decoration: none; }
+p { color: var(--muted); margin-top: 8px; }
 
 .navbar {
   position: sticky;
@@ -53,14 +44,12 @@ p {
   letter-spacing: -2px;
 }
 
-.logo span {
-  color: var(--blue);
-}
+.logo span { color: var(--blue); }
 
 nav {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 24px;
 }
 
 nav a {
@@ -69,10 +58,7 @@ nav a {
   transition: .2s;
 }
 
-nav a:hover,
-.footer a:hover {
-  color: var(--blue);
-}
+nav a:hover, .footer a:hover { color: var(--blue); }
 
 .nav-cta {
   padding: 9px 15px;
@@ -81,23 +67,23 @@ nav a:hover,
 }
 
 .section {
-  padding: 85px 8%;
+  padding: 80px 8%;
   max-width: 1450px;
   margin: auto;
 }
 
 .hero {
-  min-height: 590px;
+  min-height: 580px;
   display: grid;
   grid-template-columns: 1.15fr .85fr;
   align-items: center;
-  gap: 35px;
+  gap: 30px;
 }
 
 .eyebrow {
   font-size: 11px;
   font-weight: 800;
-  letter-spacing: 2px;
+  letter-spacing: 1.6px;
   color: var(--blue);
 }
 
@@ -111,9 +97,9 @@ nav a:hover,
 }
 
 h1 {
-  font-size: clamp(42px, 5.5vw, 72px);
+  font-size: clamp(40px, 5.5vw, 70px);
   line-height: 1.1;
-  letter-spacing: -3px;
+  letter-spacing: -2.5px;
   margin: 24px 0;
 }
 
@@ -124,10 +110,7 @@ h2 {
   margin: 15px 0;
 }
 
-h3 {
-  margin: 10px 0;
-  font-size: 22px;
-}
+h3 { margin: 10px 0; font-size: 22px; }
 
 .gradient-text {
   background: linear-gradient(100deg, #38bdf8, #818cf8);
@@ -141,13 +124,9 @@ h3 {
   -webkit-text-stroke: 1.5px var(--blue);
 }
 
-.lead {
-  max-width: 540px;
-  font-size: 16px;
-}
+.lead { max-width: 540px; font-size: 16px; }
 
-.hero-actions,
-.resume-actions {
+.hero-actions, .resume-actions {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
@@ -166,9 +145,7 @@ h3 {
   transition: .2s;
 }
 
-.btn:hover {
-  transform: translateY(-3px);
-}
+.btn:hover { transform: translateY(-3px); }
 
 .primary {
   color: #04111f;
@@ -189,30 +166,34 @@ h3 {
   font-size: 12px;
 }
 
-/* PROFILE PHOTO — CONTROLLED SIZE */
+/* Profile image and readable name */
 
 .hero-visual {
   position: relative;
   min-width: 0;
-  min-height: 350px;
+  min-height: 370px;
   display: grid;
   place-items: center;
 }
 
 .profile-card {
+  position: relative;
+  isolation: isolate;
   width: 250px;
   max-width: 75%;
   height: 300px;
-  position: relative;
   overflow: hidden;
   border: 1px solid rgba(56, 189, 248, .4);
-  border-radius: 130px 130px 24px 24px;
+  border-radius: 125px 125px 24px 24px;
   background: var(--panel);
   box-shadow: 0 0 50px rgba(56, 189, 248, .1);
 }
 
 .profile-card img {
   display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -222,20 +203,24 @@ h3 {
 .profile-overlay {
   position: absolute;
   inset: auto 0 0;
-  padding: 40px 18px 18px;
-  background: linear-gradient(transparent, rgba(3, 10, 20, .95));
+  z-index: 2;
+  padding: 55px 16px 20px;
+  background: linear-gradient(transparent, rgba(3, 10, 20, .96));
   display: flex;
   flex-direction: column;
-}
-
-.profile-overlay span,
-.profile-overlay small {
-  font-size: 11px;
-  color: #c3d5ea;
+  gap: 4px;
 }
 
 .profile-overlay strong {
-  font-size: 24px;
+  color: #fff;
+  font-size: 27px;
+  line-height: 1.3;
+}
+
+.profile-overlay small {
+  color: #38bdf8;
+  font-size: 12px;
+  font-weight: 650;
 }
 
 .orbit {
@@ -246,11 +231,7 @@ h3 {
   pointer-events: none;
 }
 
-.orbit-one {
-  width: 340px;
-  max-width: 100%;
-}
-
+.orbit-one { width: 340px; max-width: 100%; }
 .orbit-two {
   width: 390px;
   max-width: 100%;
@@ -259,36 +240,20 @@ h3 {
 
 .floating-chip {
   position: absolute;
+  z-index: 3;
   padding: 9px 12px;
   border-radius: 10px;
   border: 1px solid var(--border);
   background: #10233a;
   font-size: 11px;
   box-shadow: 0 10px 30px #0003;
-  z-index: 2;
 }
 
-.chip-top {
-  top: 25px;
-  right: 0;
-}
+.chip-top { top: 25px; right: 0; }
+.chip-bottom { bottom: 20px; left: 0; }
 
-.chip-bottom {
-  bottom: 20px;
-  left: 0;
-}
-
-/* SECTION HEADINGS */
-
-.section-heading {
-  margin-bottom: 32px;
-}
-
-.section-heading > p {
-  margin-top: 10px;
-}
-
-/* ABOUT */
+.section-heading { margin-bottom: 32px; }
+.section-heading > p { margin-top: 10px; }
 
 .about-grid {
   display: grid;
@@ -304,12 +269,9 @@ h3 {
   border-radius: 16px;
 }
 
-.about-text p {
-  line-height: 1.9;
-}
+.about-text p { line-height: 1.9; }
 
-.panel-label,
-.project-number {
+.panel-label, .project-number {
   color: var(--blue);
   font-size: 10px;
   font-weight: 800;
@@ -322,17 +284,8 @@ h3 {
   padding-top: 18px;
 }
 
-.focus-item > span {
-  color: var(--blue);
-  font-size: 12px;
-}
-
-.focus-item p {
-  margin: 2px 0;
-  font-size: 12px;
-}
-
-/* PROJECT CARDS */
+.focus-item > span { color: var(--blue); font-size: 12px; }
+.focus-item p { margin: 2px 0; font-size: 12px; }
 
 .project-grid {
   display: grid;
@@ -349,8 +302,7 @@ h3 {
   transition: .25s;
 }
 
-.project-card:hover,
-.certificate-card:hover {
+.project-card:hover, .certificate-card:hover {
   border-color: rgba(56, 189, 248, .6);
   transform: translateY(-4px);
 }
@@ -367,9 +319,7 @@ h3 {
   margin-bottom: 20px;
 }
 
-.project-card p {
-  font-size: 13px;
-}
+.project-card p { font-size: 13px; }
 
 .tag-row {
   display: flex;
@@ -394,12 +344,7 @@ h3 {
   font-weight: 750;
 }
 
-.muted {
-  color: var(--muted);
-  font-size: 12px;
-}
-
-/* CERTIFICATES — TWO COLUMNS ON DESKTOP */
+.muted { color: var(--muted); font-size: 12px; }
 
 .certificate-grid {
   display: grid;
@@ -421,30 +366,16 @@ h3 {
   transition: .2s;
 }
 
-.certificate-card > span:nth-child(2) {
-  flex: 1;
-  min-width: 0;
-}
+.certificate-card > span:nth-child(2) { flex: 1; min-width: 0; }
 
-.certificate-card strong,
-.certificate-card small {
+.certificate-card strong, .certificate-card small {
   display: block;
   overflow-wrap: anywhere;
 }
 
-.certificate-card strong {
-  font-size: 13px;
-}
-
-.certificate-card small {
-  font-size: 11px;
-  color: var(--muted);
-}
-
-.certificate-card b {
-  flex-shrink: 0;
-  color: var(--blue);
-}
+.certificate-card strong { font-size: 13px; }
+.certificate-card small { font-size: 11px; color: var(--muted); }
+.certificate-card b { flex-shrink: 0; color: var(--blue); }
 
 .file-icon {
   flex-shrink: 0;
@@ -455,8 +386,6 @@ h3 {
   font-size: 10px;
   font-weight: 900;
 }
-
-/* RESUME */
 
 .resume-panel {
   display: flex;
@@ -469,19 +398,9 @@ h3 {
   background: radial-gradient(ellipse at top right, rgba(56, 189, 248, .12), transparent 55%), var(--panel);
 }
 
-.resume-panel p {
-  max-width: 450px;
-}
-
-.resume-actions {
-  max-width: 270px;
-}
-
-.resume-actions .text-link {
-  flex-basis: 100%;
-}
-
-/* CONTACT */
+.resume-panel p { max-width: 450px; }
+.resume-actions { max-width: 270px; }
+.resume-actions .text-link { flex-basis: 100%; }
 
 .contact-panel {
   text-align: center;
@@ -491,16 +410,8 @@ h3 {
   background: radial-gradient(ellipse at top right, rgba(56, 189, 248, .12), transparent 55%), var(--panel);
 }
 
-.contact-panel p {
-  max-width: 460px;
-  margin: 15px auto 25px;
-}
-
-.small-note {
-  font-size: 10px;
-}
-
-/* FOOTER */
+.contact-panel p { max-width: 460px; margin: 15px auto 25px; }
+.small-note { font-size: 10px; }
 
 .footer {
   display: flex;
@@ -511,143 +422,38 @@ h3 {
   border-top: 1px solid var(--border);
 }
 
-.footer p,
-.footer a {
-  font-size: 11px;
-}
-
-/* TABLET */
+.footer p, .footer a { font-size: 11px; }
 
 @media (max-width: 800px) {
-  .navbar {
-    padding: 13px 5%;
-  }
-
-  nav {
-    gap: 13px;
-  }
-
-  nav a {
-    font-size: 11px;
-  }
-
-  .section {
-    padding: 65px 6%;
-  }
-
-  .hero {
-    grid-template-columns: 1fr 0.8fr;
-    gap: 15px;
-  }
-
-  .profile-card {
-    width: 220px;
-    height: 270px;
-  }
-
-  .project-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .resume-panel {
-    align-items: flex-start;
-    flex-direction: column;
-  }
+  .navbar { padding: 13px 5%; }
+  nav { gap: 13px; }
+  nav a { font-size: 11px; }
+  .section { padding: 65px 6%; }
+  .hero { grid-template-columns: 1fr 0.8fr; gap: 15px; }
+  .profile-card { width: 220px; height: 270px; }
+  .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .resume-panel { align-items: flex-start; flex-direction: column; }
 }
 
-/* MOBILE */
-
 @media (max-width: 520px) {
-  .navbar {
-    padding: 12px 5%;
-  }
-
-  nav {
-    gap: 12px;
-  }
-
-  nav a {
-    font-size: 11px;
-  }
-
-  nav a:nth-child(1),
-  nav a:nth-child(2) {
-    display: none;
-  }
-
-  .section {
-    padding: 55px 5%;
-  }
-
-  .hero {
-    grid-template-columns: 1fr;
-    padding-top: 45px;
-  }
-
-  h1 {
-    font-size: clamp(40px, 12vw, 58px);
-    letter-spacing: -2px;
-  }
-
-  .hero-meta {
-    flex-direction: column;
-    gap: 5px;
-  }
-
-  .hero-visual {
-    min-height: 330px;
-    margin-top: 10px;
-  }
-
-  .profile-card {
-    width: 220px;
-    max-width: 72%;
-    height: 265px;
-  }
-
-  .orbit-one {
-    width: 300px;
-  }
-
-  .orbit-two {
-    width: 330px;
-  }
-
-  .chip-top {
-    top: 15px;
-    right: 0;
-  }
-
-  .chip-bottom {
-    bottom: 12px;
-    left: 0;
-  }
-
-  .about-grid,
-  .project-grid,
-  .certificate-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .panel,
-  .project-card {
-    padding: 20px;
-  }
-
-  .certificate-card {
-    padding: 15px;
-  }
-
-  .resume-panel {
-    padding: 25px 20px;
-  }
-
-  .resume-actions {
-    max-width: 100%;
-  }
-
-  .footer {
-    flex-wrap: wrap;
-    padding: 22px 5%;
-  }
+  .navbar { padding: 12px 5%; }
+  nav { gap: 12px; }
+  nav a { font-size: 11px; }
+  nav a:nth-child(1), nav a:nth-child(2) { display: none; }
+  .section { padding: 55px 5%; }
+  .hero { grid-template-columns: 1fr; padding-top: 45px; }
+  h1 { font-size: clamp(40px, 12vw, 58px); letter-spacing: -2px; }
+  .hero-meta { flex-direction: column; gap: 5px; }
+  .hero-visual { min-height: 330px; margin-top: 10px; }
+  .profile-card { width: 220px; max-width: 72%; height: 265px; }
+  .orbit-one { width: 300px; }
+  .orbit-two { width: 330px; }
+  .chip-top { top: 15px; right: 0; }
+  .chip-bottom { bottom: 12px; left: 0; }
+  .about-grid, .project-grid, .certificate-grid { grid-template-columns: 1fr; }
+  .panel, .project-card { padding: 20px; }
+  .certificate-card { padding: 15px; }
+  .resume-panel { padding: 25px 20px; }
+  .resume-actions { max-width: 100%; }
+  .footer { flex-wrap: wrap; padding: 22px 5%; }
 }

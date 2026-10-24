@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
 
 :root {
   --bg: #080d18;
@@ -23,7 +23,7 @@ body {
     radial-gradient(ellipse at 10% 0%, #142344 0%, transparent 40%),
     var(--bg);
   color: var(--text);
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   line-height: 1.65;
 }
 
@@ -101,7 +101,7 @@ button { font: inherit; }
 }
 
 h1, h2, h3 {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Manrope', sans-serif;
   line-height: 1.2;
 }
 

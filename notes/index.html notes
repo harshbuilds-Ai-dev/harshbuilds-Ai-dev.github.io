@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Notes</title>
+</head>
+
+<body style="background-color: lightyellow;">
+
+    <h1 style="color: blue;">Harsh Notes App</h1>
+
+    <textarea id="note" rows="10" cols="40"></textarea>
+
+    <br><br>
+
+    <button onclick="saveNote()">Save My Note</button>
+    <button onclick="deleteNote()">Delete Note</button>
+
+    <script>
+        function saveNote() {
+            let note = document.getElementById("note").value;
+            localStorage.setItem("mynote", note);
+            alert("Note Saved!");
+        }
+
+        function deleteNote() {
+            localStorage.removeItem("mynote");
+            document.getElementById("note").value = "";
+            alert("Note Deleted!");
+        }
+
+        document.getElementById("note").value =
+            localStorage.getItem("mynote") || "";
+    </script>
+
+</body>
+</html>

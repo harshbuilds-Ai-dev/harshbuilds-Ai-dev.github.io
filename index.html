@@ -1,30 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Harsh Dhankhar">
-  <meta name="description" content="Harsh Dhankhar's developer portfolio, projects, certificates, resume and programming notes.">
-  <meta name="robots" content="index, follow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Harsh Dhankhar">
+<meta name="description" content="Harsh Dhankhar's developer portfolio, projects, certificates and programming notes.">
+<meta name="robots" content="index, follow">
+<meta name="google-site-verification" content="R30KD2g1QavOhn7-BtW7ZYMr7pl92MbXufvkJG7yLrQ">
+<title>Harsh Dhankhar | Software Developer</title>
+<link rel="canonical" href="https://harshbuilds-AI-dev.github.io/">
 
-  <!-- Google Search Console verification -->
-  <meta name="google-site-verification" content="R30KD2g1QavOhn7-BtW7ZYMr7pl92MbXufvkJG7yLrQ">
-
-  <title>Harsh Dhankhar | Software Developer</title>
-  <link rel="canonical" href="https://harshbuilds-AI-dev.github.io/">
-  <link rel="stylesheet" href="style.css">
+<style>
+:root {
+  color-scheme: dark;
+  --bg: #07111f;
+  --surface: #101e32;
+  --surface2: #14243b;
+  --text: #edf4ff;
+  --muted: #aab9ce;
+  --accent: #55a7ff;
+  --border: #293b54;
+  --shadow: 0 12px 32px #0003;
+}
+body.light-mode {
+  color-scheme: light;
+  --bg: #f3f7fc;
+  --surface: #ffffff;
+  --surface2: #eaf1fb;
+  --text: #17243a;
+  --muted: #52637a;
+  --accent: #075fc7;
+  --border: #d4deeb;
+  --shadow: 0 12px 30px #17243a12;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.65;
+  transition: background .2s, color .2s;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+.container { width: min(1100px, 92%); margin: auto; }
+.header {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.nav {
+  min-height: 72px; display: flex; align-items: center;
+  justify-content: space-between; gap: 18px;
+}
+.logo { color: var(--text); font-size: 23px; font-weight: 900; }
+.logo span, h1 span, h2 span { color: var(--accent); }
+.nav-links { display: flex; align-items: center; gap: 16px; }
+.nav-links a { color: var(--text); font-size: 14px; }
+.nav-tools { display: flex; gap: 8px; align-items: center; }
+.theme-btn, .more-btn, .menu-btn {
+  color: var(--text); background: var(--surface2);
+  border: 1px solid var(--border); border-radius: 10px;
+  padding: 8px 12px; font-size: 18px;
+}
+.menu-btn { display: none; }
+.more-wrap { position: relative; }
+.more-menu {
+  display: none; position: absolute; right: 0; top: 48px;
+  width: 220px; padding: 8px; border-radius: 12px;
+  background: var(--surface); border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+.more-menu.show { display: grid; }
+.more-menu a, .more-menu button {
+  display: block; text-align: left; width: 100%; padding: 10px;
+  border: 0; border-radius: 7px; color: var(--text);
+  background: transparent;
+}
+.more-menu a:hover, .more-menu button:hover { background: var(--surface2); }
+.section { padding: 76px 0; }
+.alternate { background: var(--surface2); }
+.hero { padding: 85px 0; }
+.hero-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 45px; align-items: center; }
+.eyebrow { color: var(--accent); font-weight: 800; letter-spacing: 2px; font-size: 12px; }
+h1 { font-size: clamp(34px, 5vw, 58px); line-height: 1.12; margin: 12px 0; }
+h2 { font-size: clamp(28px, 4vw, 40px); line-height: 1.2; margin: 10px 0 24px; }
+h3 { line-height: 1.3; }
+.description { max-width: 720px; color: var(--muted); }
+.buttons, .stats { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 25px; }
+.btn {
+  display: inline-block; padding: 11px 17px; border-radius: 9px;
+  font-weight: 700; border: 1px solid var(--accent);
+}
+.primary { background: var(--accent); color: #06111f; }
+.secondary { color: var(--text); }
+.stats div { padding: 12px 17px; border-left: 2px solid var(--accent); }
+.stats strong, .stats small { display: block; }
+.stats small { color: var(--muted); }
+.profile-area { text-align: center; }
+.profile {
+  width: min(270px, 80%); aspect-ratio: 1; margin: auto;
+  border: 3px solid var(--accent); border-radius: 28px;
+  overflow: hidden; background: var(--surface2);
+}
+.profile img { width: 100%; height: 100%; object-fit: cover; }
+.profile-caption p { color: var(--muted); margin-top: 0; }
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.card {
+  min-width: 0; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 15px; padding: 22px; box-shadow: var(--shadow);
+}
+.card p { color: var(--muted); }
+.icon, .project-icon { font-size: 28px; }
+.tag { font-size: 12px; color: var(--accent) !important; }
+.text-link { font-weight: 700; }
+.certificate-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.certificate {
+  display: flex; gap: 14px; align-items: center;
+  color: var(--text); text-decoration: none;
+}
+.certificate > span { font-size: 25px; }
+.certificate div { flex: 1; min-width: 0; }
+.certificate h3 { margin: 0 0 5px; font-size: 16px; }
+.certificate small { color: var(--muted); }
+.certificate b { color: var(--accent); }
+.library-notice { padding: 22px; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); margin: 25px 0; }
+.library-notice p { color: var(--muted); }
+.language-toolbar { margin: 25px 0; }
+.language-toolbar label { display: block; margin-bottom: 8px; font-weight: 700; }
+input, select {
+  width: 100%; padding: 12px; color: var(--text);
+  background: var(--surface); border: 1px solid var(--border); border-radius: 9px;
+}
+.language-tabs { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 15px; }
+.language-tab {
+  padding: 9px 15px; border-radius: 9px;
+  background: var(--surface); color: var(--text);
+  border: 1px solid var(--border);
+}
+.language-tab.active { background: var(--accent); color: #06111f; border-color: var(--accent); }
+.topic-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 20px; }
+.topic-card { padding: 18px; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; }
+.topic-card p { color: var(--muted); margin-bottom: 0; }
+.question-controls { display: grid; grid-template-columns: 1fr 220px; gap: 12px; margin: 20px 0; }
+.question-list { display: grid; gap: 12px; }
+.question {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 18px;
+}
+.question h3 { margin-top: 0; font-size: 17px; }
+.question-options { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 12px; }
+.option {
+  display: block; width: 100%; text-align: left; padding: 11px 13px;
+  color: var(--text); background: var(--surface2);
+  border: 1px solid var(--border); border-radius: 8px;
+}
+.option.correct { border-color: #20a464; background: #16844b22; }
+.option.incorrect { border-color: #e05252; background: #e0525222; }
+.answer-note { margin-bottom: 0; color: var(--muted); }
+.resume-box { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.contact-card { display: block; color: var(--text); }
+.footer { padding: 35px 0; text-align: center; border-top: 1px solid var(--border); }
+.footer p, .footer small { color: var(--muted); display: block; }
+.status { color: var(--muted); }
+@media (max-width: 850px) {
+  .nav { flex-wrap: wrap; padding: 12px 0; }
+  .menu-btn { display: inline-block; margin-left: auto; }
+  .nav-links { display: none; order: 5; width: 100%; flex-direction: column; align-items: stretch; gap: 0; }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 10px; border-top: 1px solid var(--border); }
+  .nav-tools { order: 3; }
+  .hero-grid { grid-template-columns: 1fr; }
+  .profile-area { order: -1; }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .section { padding: 52px 0; }
+  .grid, .certificate-grid, .topic-grid, .question-controls { grid-template-columns: 1fr; }
+  .resume-box { flex-direction: column; align-items: flex-start; }
+  .stats { gap: 8px; }
+  .stats div { padding: 8px; }
+  .card { padding: 17px; }
+}
+</style>
 </head>
 
 <body>
-
 <header class="header">
   <nav class="nav container">
-
     <a class="logo" href="#home">HARSH<span>.</span></a>
-
-    <button class="menu-btn" id="menuBtn" aria-label="Open menu">
-      ☰
-    </button>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button>
 
     <div class="nav-links" id="navLinks">
       <a href="#home">Home</a>
@@ -32,16 +201,15 @@
       <a href="#projects">Projects</a>
       <a href="#certificates">Certificates</a>
       <a href="#coding-library">Coding Library</a>
+      <a href="#language-questions">Questions</a>
       <a href="#resume">Resume</a>
       <a href="#contact">Contact</a>
     </div>
 
     <div class="nav-tools">
-      <button class="theme-btn" id="themeBtn" type="button">☀️</button>
-
+      <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch theme">☀️</button>
       <div class="more-wrap">
-        <button class="more-btn" id="moreBtn" type="button">⋮</button>
-
+        <button class="more-btn" id="moreBtn" type="button" aria-expanded="false" aria-label="More options">⋮</button>
         <div class="more-menu" id="moreMenu">
           <a href="#coding-library">📚 Coding Notes</a>
           <a href="#language-questions">🧠 Practice Questions</a>
@@ -50,425 +218,142 @@
         </div>
       </div>
     </div>
-
   </nav>
 </header>
 
 <main>
-
-  <!-- HOME -->
-  <section class="hero section" id="home">
-    <div class="container hero-grid">
-
-      <div>
-        <p class="eyebrow">WELCOME TO MY PORTFOLIO</p>
-
-        <h1>Hi, I'm <span>Harsh Dhankhar</span></h1>
-
-        <h2>Aspiring Software Developer</h2>
-
-        <p class="description">
-          Engineering student at Chandigarh University, Mohali.
-          I love learning programming, building projects and turning
-          ideas into reality through code.
-        </p>
-
-        <div class="buttons">
-          <a href="#projects" class="btn primary">Explore Projects ↗</a>
-          <a href="./resume.pdf" target="_blank" rel="noopener"
-             class="btn secondary">View Resume</a>
-        </div>
-
-        <div class="stats">
-          <div>
-            <strong>LEARN</strong>
-            <small>Every single day</small>
-          </div>
-
-          <div>
-            <strong>BUILD</strong>
-            <small>Real projects</small>
-          </div>
-
-          <div>
-            <strong>IMPROVE</strong>
-            <small>Step by step</small>
-          </div>
-        </div>
+<section class="hero section" id="home">
+  <div class="container hero-grid">
+    <div>
+      <p class="eyebrow">WELCOME TO MY PORTFOLIO</p>
+      <h1>Hi, I'm <span>Harsh Dhankhar</span></h1>
+      <h2>Aspiring Software Developer</h2>
+      <p class="description">Engineering student at Chandigarh University, Mohali. I enjoy learning programming, building projects and turning ideas into reality through code.</p>
+      <div class="buttons">
+        <a href="#projects" class="btn primary">Explore Projects ↗</a>
+        <a href="./resume.pdf" target="_blank" rel="noopener" class="btn secondary">View Resume</a>
       </div>
-
-      <div class="profile-area">
-        <div class="profile">
-          <img src="./profile.jpg" alt="Harsh Dhankhar"
-               onerror="this.style.display='none';document.getElementById('fallback').style.display='grid';">
-
-          <div id="fallback">H<span>.</span></div>
-        </div>
-
-        <div class="profile-caption">
-          <h3>HARSH</h3>
-          <p>Software Developer</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="section" id="about">
-    <div class="container">
-
-      <p class="eyebrow">GET TO KNOW ME</p>
-      <h2>About <span>Me</span></h2>
-
-      <div class="grid">
-
-        <article class="card">
-          <div class="icon">🎓</div>
-          <h3>My Education</h3>
-          <p>
-            I am an engineering student at Chandigarh University,
-            Mohali, working on developing my technical knowledge and skills.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="icon">💻</div>
-          <h3>My Interests</h3>
-          <p>
-            Programming, web development, problem-solving and
-            creating useful applications.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="icon">🚀</div>
-          <h3>My Goal</h3>
-          <p>
-            To become a skilled software developer by learning
-            consistently and building practical projects.
-          </p>
-        </article>
-
+      <div class="stats">
+        <div><strong>LEARN</strong><small>Every single day</small></div>
+        <div><strong>BUILD</strong><small>Real projects</small></div>
+        <div><strong>IMPROVE</strong><small>Step by step</small></div>
       </div>
     </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section class="section alternate" id="projects">
-    <div class="container">
-
-      <p class="eyebrow">WHAT I'M BUILDING</p>
-      <h2>My <span>Projects</span></h2>
-
-      <div class="grid">
-
-        <article class="card project">
-          <div class="project-icon">📝</div>
-          <p class="tag">HTML · CSS · JavaScript</p>
-          <h3>Notes App</h3>
-          <p>A simple app for writing and saving notes in a browser.</p>
-          <a class="text-link" href="#contact">Know more ↗</a>
-        </article>
-
-        <article class="card project">
-          <div class="project-icon">✅</div>
-          <p class="tag">HTML · CSS · JavaScript</p>
-          <h3>To-Do App</h3>
-          <p>Organise tasks, mark them complete and save your list.</p>
-          <a class="text-link" href="./todo.html">Open To-Do App ↗</a>
-        </article>
-
-        <article class="card project">
-          <div class="project-icon">&lt;/&gt;</div>
-          <p class="tag">GitHub Pages</p>
-          <h3>Developer Portfolio</h3>
-          <p>My personal website showcasing projects and certificates.</p>
-          <a class="text-link"
-             href="https://github.com/harshbuilds-AI-dev"
-             target="_blank" rel="noopener">View GitHub ↗</a>
-        </article>
-
+    <div class="profile-area">
+      <div class="profile">
+        <img src="./profile.jpg" alt="Harsh Dhankhar" onerror="this.style.display='none'">
       </div>
+      <div class="profile-caption"><h3>HARSH</h3><p>Software Developer</p></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CERTIFICATES -->
-  <section class="section" id="certificates">
-    <div class="container">
-
-      <p class="eyebrow">MY LEARNING JOURNEY</p>
-      <h2>Certificates <span>&amp; Training</span></h2>
-
-      <div class="certificate-grid">
-
-        <a class="certificate card"
-           href="./Harsh_Training_Certificate_Corizo_certificate.pdf"
-           target="_blank" rel="noopener">
-          <span>📄</span>
-          <div>
-            <h3>Corizo Training Certificate</h3>
-            <small>Open certificate PDF</small>
-          </div>
-          <b>↗</b>
-        </a>
-
-        <a class="certificate card" href="./5%20courses.pdf"
-           target="_blank" rel="noopener">
-          <span>📄</span>
-          <div>
-            <h3>Five Courses</h3>
-            <small>Open course records</small>
-          </div>
-          <b>↗</b>
-        </a>
-
-        <a class="certificate card" href="./c1.pdf"
-           target="_blank" rel="noopener">
-          <span>📄</span>
-          <div><h3>Certificate 01</h3><small>View PDF</small></div>
-          <b>↗</b>
-        </a>
-
-        <a class="certificate card" href="./c2.pdf"
-           target="_blank" rel="noopener">
-          <span>📄</span>
-          <div><h3>Certificate 02</h3><small>View PDF</small></div>
-          <b>↗</b>
-        </a>
-
-        <a class="certificate card" href="./c3.pdf"
-           target="_blank" rel="noopener">
-          <span>📄</span>
-          <div><h3>Certificate 03</h3><small>View PDF</small></div>
-          <b>↗</b>
-        </a>
-
-        <a class="certificate card" href="./c4.pdf"
-           target="_blank" rel="noopener">
-          <span>📄</span>
-          <div><h3>Certificate 04</h3><small>View PDF</small></div>
-          <b>↗</b>
-        </a>
-
-        <a class="certificate card" href="./c5.pdf"
-           target="_blank" rel="noopener">
-          <span>📄</span>
-          <div><h3>Certificate 05</h3><small>View PDF</small></div>
-          <b>↗</b>
-        </a>
-
-      </div>
+<section class="section" id="about">
+  <div class="container">
+    <p class="eyebrow">GET TO KNOW ME</p><h2>About <span>Me</span></h2>
+    <div class="grid">
+      <article class="card"><div class="icon">🎓</div><h3>My Education</h3><p>Engineering student at Chandigarh University, developing technical knowledge and skills.</p></article>
+      <article class="card"><div class="icon">💻</div><h3>My Interests</h3><p>Programming, web development, problem-solving and useful applications.</p></article>
+      <article class="card"><div class="icon">🚀</div><h3>My Goal</h3><p>Become a skilled software developer by learning consistently and building practical projects.</p></article>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CODING LIBRARY -->
-  <section class="section alternate" id="coding-library">
-    <div class="container">
-
-      <p class="eyebrow">LEARN · PRACTISE · BUILD</p>
-      <h2>Programming <span>Library</span></h2>
-
-      <p class="description">
-        Beginner-friendly programming notes, learning topics and practice questions.
-      </p>
-
-      <div class="library-notice">
-        <strong>📘 C Language — Complete Notes in English</strong>
-
-        <p>
-          Open the complete C notes PDF for chapter-wise explanations,
-          examples and practice.
-        </p>
-
-        <a class="btn primary"
-           href="./C%20Language_Zero_To_Hero_Notes%2BGuide%2BPrac.pdf"
-           target="_blank" rel="noopener">
-          Open Complete C Notes PDF ↗
-        </a>
-      </div>
-
-      <div class="language-toolbar">
-        <label for="languageSearch">Search notes or questions</label>
-
-        <input id="languageSearch" type="search"
-               placeholder="e.g. arrays, loops, recursion..."
-               autocomplete="off">
-
-        <div class="language-tabs" id="languageTabs"
-             role="tablist" aria-label="Programming languages">
-        </div>
-      </div>
-
-      <div id="languageContent" class="language-content"></div>
-
+<section class="section alternate" id="projects">
+  <div class="container">
+    <p class="eyebrow">WHAT I'M BUILDING</p><h2>My <span>Projects</span></h2>
+    <div class="grid">
+      <article class="card project"><div class="project-icon">📝</div><p class="tag">HTML · CSS · JavaScript</p><h3>Notes App</h3><p>A simple app for writing and saving notes in a browser.</p><a class="text-link" href="#contact">Know more ↗</a></article>
+      <article class="card project"><div class="project-icon">✅</div><p class="tag">HTML · CSS · JavaScript</p><h3>To-Do App</h3><p>Organise tasks, mark them complete and save your list.</p><a class="text-link" href="./todo.html">Open To-Do App ↗</a></article>
+      <article class="card project"><div class="project-icon">&lt;/&gt;</div><p class="tag">GitHub Pages</p><h3>Developer Portfolio</h3><p>My personal website showcasing projects and certificates.</p><a class="text-link" href="https://github.com/harshbuilds-AI-dev" target="_blank" rel="noopener">View GitHub ↗</a></article>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- QUESTION BANK -->
-  <section class="section" id="language-questions">
-    <div class="container">
-
-      <p class="eyebrow">PRACTICE EVERY DAY</p>
-      <h2>Question <span>Bank</span></h2>
-
-      <p class="description">
-        Practice questions for C, C++, Java, Python and JavaScript.
-        These are practice questions, not guaranteed exam questions.
-      </p>
-
-      <div id="questionBank" class="question-bank"></div>
-
+<section class="section" id="certificates">
+  <div class="container">
+    <p class="eyebrow">MY LEARNING JOURNEY</p><h2>Certificates <span>&amp; Training</span></h2>
+    <div class="certificate-grid">
+      <a class="certificate card" href="./Harsh_Training_Certificate_Corizo_certificate.pdf" target="_blank" rel="noopener"><span>📄</span><div><h3>Corizo Training Certificate</h3><small>Open certificate PDF</small></div><b>↗</b></a>
+      <a class="certificate card" href="./5%20courses.pdf" target="_blank" rel="noopener"><span>📄</span><div><h3>Five Courses</h3><small>Open course records</small></div><b>↗</b></a>
+      <a class="certificate card" href="./c1.pdf" target="_blank" rel="noopener"><span>📄</span><div><h3>Certificate 01</h3><small>View PDF</small></div><b>↗</b></a>
+      <a class="certificate card" href="./c2.pdf" target="_blank" rel="noopener"><span>📄</span><div><h3>Certificate 02</h3><small>View PDF</small></div><b>↗</b></a>
+      <a class="certificate card" href="./c3.pdf" target="_blank" rel="noopener"><span>📄</span><div><h3>Certificate 03</h3><small>View PDF</small></div><b>↗</b></a>
+      <a class="certificate card" href="./c4.pdf" target="_blank" rel="noopener"><span>📄</span><div><h3>Certificate 04</h3><small>View PDF</small></div><b>↗</b></a>
+      <a class="certificate card" href="./c5.pdf" target="_blank" rel="noopener"><span>📄</span><div><h3>Certificate 05</h3><small>View PDF</small></div><b>↗</b></a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- PDF NOTES -->
-  <section class="section alternate" id="pdf-notes">
-    <div class="container">
-
-      <p class="eyebrow">YOUR STUDY MATERIAL</p>
-      <h2>PDF Notes <span>&amp; Question Banks</span></h2>
-
-      <p class="description">
-        Upload the matching PDFs to your GitHub repository's root folder
-        so these links work.
-      </p>
-
-      <div class="certificate-grid">
-
-        <a class="certificate card"
-           href="./C%20Language_Zero_To_Hero_Notes%2BGuide%2BPrac.pdf"
-           target="_blank" rel="noopener">
-          <span>📘</span>
-          <div>
-            <h3>C Language — Complete Notes</h3>
-            <small>Zero to Hero notes, guide and practice</small>
-          </div>
-          <b>↗</b>
-        </a>
-
-        <a class="certificate card"
-           href="./Programming_in_C_Question_Bank_CU_Helpdesk.pdf"
-           target="_blank" rel="noopener">
-          <span>📄</span>
-          <div>
-            <h3>C Programming Question Bank</h3>
-            <small>Loops, arrays, strings, functions and recursion</small>
-          </div>
-          <b>↗</b>
-        </a>
-
-        <a class="certificate card"
-           href="./Unit%202%20C_Programming_MST_Practice_Questions%283%29.pdf"
-           target="_blank" rel="noopener">
-          <span>📄</span>
-          <div>
-            <h3>C Unit 2 MST Practice Questions</h3>
-            <small>Topic-wise practice</small>
-          </div>
-          <b>↗</b>
-        </a>
-
-        <a class="certificate card"
-           href="./C%2B%2B%20DSA%20by%20Love%20babbar.pdf"
-           target="_blank" rel="noopener">
-          <span>📘</span>
-          <div>
-            <h3>C++ DSA Notes</h3>
-            <small>Open C++ DSA PDF</small>
-          </div>
-          <b>↗</b>
-        </a>
-
-        <a class="certificate card"
-           href="./Java%20Handwritten%20Notes%20-2%20%281%29.pdf"
-           target="_blank" rel="noopener">
-          <span>📘</span>
-          <div>
-            <h3>Java Handwritten Notes</h3>
-            <small>Open Java notes PDF</small>
-          </div>
-          <b>↗</b>
-        </a>
-
-        <a class="certificate card"
-           href="./Oops%20in%20c%2B%2B%20INTERVIEW%20SERIES%20-2.pdf"
-           target="_blank" rel="noopener">
-          <span>📘</span>
-          <div>
-            <h3>C++ OOP Interview Notes</h3>
-            <small>Open C++ OOP notes</small>
-          </div>
-          <b>↗</b>
-        </a>
-
-      </div>
+<section class="section alternate" id="coding-library">
+  <div class="container">
+    <p class="eyebrow">LEARN · PRACTISE · BUILD</p><h2>Programming <span>Library</span></h2>
+    <p class="description">Beginner-friendly topics for C, C++, Java, Python and JavaScript.</p>
+    <div class="library-notice">
+      <strong>📘 C Language — Complete Notes</strong>
+      <p>If the PDF is uploaded to the repository with the exact filename below, this button will open it.</p>
+      <a class="btn primary" href="./C%20Language_Zero_To_Hero_Notes%2BGuide%2BPrac.pdf" target="_blank" rel="noopener">Open Complete C Notes PDF ↗</a>
     </div>
-  </section>
-
-  <!-- RESUME -->
-  <section class="section alternate" id="resume">
-    <div class="container resume-box card">
-
-      <div>
-        <p class="eyebrow">MY RESUME</p>
-        <h2>Explore My <span>Journey</span></h2>
-        <p>View my resume for more information about my background.</p>
-      </div>
-
-      <a href="./resume.pdf" class="btn primary"
-         target="_blank" rel="noopener">
-        Open Resume PDF ↗
-      </a>
-
+    <div class="language-toolbar">
+      <label for="languageSearch">Search topics or questions</label>
+      <input id="languageSearch" type="search" placeholder="e.g. arrays, loops, functions">
+      <div class="language-tabs" id="languageTabs" role="tablist" aria-label="Programming languages"></div>
     </div>
-  </section>
+    <div id="languageContent" class="topic-grid"></div>
+  </div>
+</section>
 
-  <!-- CONTACT -->
-  <section class="section" id="contact">
-    <div class="container">
-
-      <p class="eyebrow">LET'S CONNECT</p>
-      <h2>Contact <span>Me</span></h2>
-
-      <p class="description">
-        Have a project idea or want to connect? Reach out below.
-      </p>
-
-      <div class="grid">
-
-        <a class="card contact-card" href="mailto:YOUR_GMAIL@gmail.com">
-          <div class="icon">✉️</div>
-          <h3>Email</h3>
-          <p>Replace YOUR_GMAIL@gmail.com with your actual email.</p>
-        </a>
-
-        <a class="card contact-card" href="tel:9602597741">
-          <div class="icon">📞</div>
-          <h3>Phone</h3>
-          <p>9602597741</p>
-        </a>
-
-        <a class="card contact-card"
-           href="https://wa.me/919602597741"
-           target="_blank" rel="noopener">
-          <div class="icon">💬</div>
-          <h3>WhatsApp</h3>
-          <p>Send me a message.</p>
-        </a>
-
-        <a class="card contact-card"
-           href="https://github.com/harshbuilds-AI-dev"
-           target="_blank" rel="noopener">
-          <div class="icon">⌘</div>
-          <h3>GitHub</h3>
-          <p>Explore my repositories.</p>
-        </a>
-
-      </div>
+<section class="section" id="language-questions">
+  <div class="container">
+    <p class="eyebrow">PRACTICE EVERY DAY</p><h2>Question <span>Bank</span></h2>
+    <p class="description">Choose a language and practise these beginner-level multiple-choice questions.</p>
+    <div class="question-controls">
+      <input id="questionSearch" type="search" placeholder="Search questions...">
+      <select id="questionLanguage" aria-label="Filter by language">
+        <option value="All">All languages</option>
+        <option value="C">C</option><option value="C++">C++</option>
+        <option value="Java">Java</option><option value="Python">Python</option>
+        <option value="JavaScript">JavaScript</option>
+      </select>
     </div>
-  </section>
+    <p id="questionCount" class="status" aria-live="polite"></p>
+    <div id="questionBank" class="question-list"></div>
+  </div>
+</section>
 
+<section class="section alternate" id="pdf-notes">
+  <div class="container">
+    <p class="eyebrow">YOUR STUDY MATERIAL</p><h2>PDF Notes <span>&amp; Question Banks</span></h2>
+    <p class="description">These links work only when each PDF is uploaded to the repository root with the exact same filename.</p>
+    <div class="certificate-grid">
+      <a class="certificate card" href="./C%20Language_Zero_To_Hero_Notes%2BGuide%2BPrac.pdf" target="_blank" rel="noopener"><span>📘</span><div><h3>C Language — Complete Notes</h3><small>Open C notes PDF</small></div><b>↗</b></a>
+      <a class="certificate card" href="./Programming_in_C_Question_Bank_CU_Helpdesk.pdf" target="_blank" rel="noopener"><span>📄</span><div><h3>C Programming Question Bank</h3><small>Practice questions PDF</small></div><b>↗</b></a>
+      <a class="certificate card" href="./Unit%202%20C_Programming_MST_Practice_Questions%283%29.pdf" target="_blank" rel="noopener"><span>📄</span><div><h3>C Unit 2 MST Practice</h3><small>Open PDF</small></div><b>↗</b></a>
+      <a class="certificate card" href="./C%2B%2B%20DSA%20by%20Love%20babbar.pdf" target="_blank" rel="noopener"><span>📘</span><div><h3>C++ DSA Notes</h3><small>Open PDF</small></div><b>↗</b></a>
+      <a class="certificate card" href="./Java%20Handwritten%20Notes%20-2%20%281%29.pdf" target="_blank" rel="noopener"><span>📘</span><div><h3>Java Handwritten Notes</h3><small>Open PDF</small></div><b>↗</b></a>
+      <a class="certificate card" href="./Oops%20in%20c%2B%2B%20INTERVIEW%20SERIES%20-2.pdf" target="_blank" rel="noopener"><span>📘</span><div><h3>C++ OOP Interview Notes</h3><small>Open PDF</small></div><b>↗</b></a>
+    </div>
+  </div>
+</section>
+
+<section class="section alternate" id="resume">
+  <div class="container resume-box card">
+    <div><p class="eyebrow">MY RESUME</p><h2>Explore My <span>Journey</span></h2><p>View my resume for more information about my background.</p></div>
+    <a href="./resume.pdf" class="btn primary" target="_blank" rel="noopener">Open Resume PDF ↗</a>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="container">
+    <p class="eyebrow">LET'S CONNECT</p><h2>Contact <span>Me</span></h2>
+    <p class="description">Have a project idea or want to connect? Reach out below.</p>
+    <div class="grid">
+      <a class="card contact-card" href="https://github.com/harshbuilds-AI-dev" target="_blank" rel="noopener"><div class="icon">⌘</div><h3>GitHub</h3><p>Explore my repositories.</p></a>
+      <a class="card contact-card" href="#projects"><div class="icon">💻</div><h3>Projects</h3><p>See what I am building.</p></a>
+      <a class="card contact-card" href="#coding-library"><div class="icon">📚</div><h3>Coding Library</h3><p>Practise programming.</p></a>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer class="footer">
@@ -476,74 +361,320 @@
   <p>Learning Today, Building Tomorrow 🚀</p>
   <p>Turning ideas into reality, one line of code at a time.</p>
   <small>© 2026 Harsh Dhankhar. All rights reserved.</small>
-  <small>Son of DHARAMBIR DHANKHAR</small>
 </footer>
 
-<script src="coding-library.js"></script>
-
 <script>
-  // Mobile navigation
-  const menuBtn = document.getElementById("menuBtn");
-  const navLinks = document.getElementById("navLinks");
+"use strict";
 
-  menuBtn.addEventListener("click", () => {
-    const isOpen = navLinks.classList.toggle("open");
-    menuBtn.setAttribute("aria-expanded", String(isOpen));
+// Mobile navigation
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+  const open = navLinks.classList.toggle("open");
+  menuBtn.setAttribute("aria-expanded", String(open));
+});
+
+navLinks.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuBtn.setAttribute("aria-expanded", "false");
   });
+});
 
-  navLinks.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
-      navLinks.classList.remove("open");
-      menuBtn.setAttribute("aria-expanded", "false");
+// Three-dot menu
+const moreBtn = document.getElementById("moreBtn");
+const moreMenu = document.getElementById("moreMenu");
+
+moreBtn.addEventListener("click", event => {
+  event.stopPropagation();
+  const open = moreMenu.classList.toggle("show");
+  moreBtn.setAttribute("aria-expanded", String(open));
+});
+
+document.addEventListener("click", event => {
+  if (!event.target.closest(".more-wrap")) {
+    moreMenu.classList.remove("show");
+    moreBtn.setAttribute("aria-expanded", "false");
+  }
+});
+
+// Dark / Light mode
+const themeBtn = document.getElementById("themeBtn");
+
+function setTheme(theme) {
+  const light = theme === "light";
+  document.body.classList.toggle("light-mode", light);
+  themeBtn.textContent = light ? "🌙" : "☀️";
+  themeBtn.setAttribute("aria-label", light ? "Switch to dark mode" : "Switch to light mode");
+  try { localStorage.setItem("harsh-theme", theme); } catch (error) {}
+}
+
+function toggleTheme() {
+  setTheme(document.body.classList.contains("light-mode") ? "dark" : "light");
+}
+
+themeBtn.addEventListener("click", toggleTheme);
+document.getElementById("menuThemeBtn").addEventListener("click", () => {
+  toggleTheme();
+  moreMenu.classList.remove("show");
+});
+
+try { setTheme(localStorage.getItem("harsh-theme") || "dark"); }
+catch (error) { setTheme("dark"); }
+
+// Programming topics
+const topics = {
+  "C": [
+    ["Variables and data types", "Learn int, char, float, double and variable declarations."],
+    ["Input and output", "Practise printf(), scanf() and format specifiers."],
+    ["If-else and switch", "Make decisions using conditions."],
+    ["Loops", "Understand for, while and do-while loops."],
+    ["Arrays and strings", "Store collections and work with character arrays."],
+    ["Functions", "Learn parameters, return values and function prototypes."],
+    ["Pointers", "Understand addresses, dereferencing and pointer basics."],
+    ["Structures", "Group related values using struct."],
+    ["Recursion", "Solve problems with a function calling itself."],
+    ["File handling", "Learn basic file operations in C."]
+  ],
+  "C++": [
+    ["C++ basics", "Understand main(), cout, cin and data types."],
+    ["Conditions and loops", "Practise if-else, switch and loops."],
+    ["Functions", "Learn parameters, overloading and return values."],
+    ["Arrays and strings", "Work with arrays and std::string."],
+    ["Pointers and references", "Understand addresses and references."],
+    ["Classes and objects", "Learn constructors, objects and member functions."],
+    ["Inheritance", "Understand base and derived classes."],
+    ["Polymorphism", "Learn function overriding and virtual functions."],
+    ["STL", "Explore vector, map, set and algorithms."],
+    ["DSA basics", "Practise searching, sorting, stacks and queues."]
+  ],
+  "Java": [
+    ["Java basics", "Understand class, main method and variables."],
+    ["Data types", "Learn primitive types and type conversion."],
+    ["Conditions and loops", "Practise if, switch, for and while."],
+    ["Methods", "Define methods and pass arguments."],
+    ["Arrays and strings", "Work with arrays and String methods."],
+    ["Classes and objects", "Create objects and use constructors."],
+    ["Inheritance", "Extend classes and reuse behaviour."],
+    ["Interfaces", "Understand interface declarations and implementation."],
+    ["Exceptions", "Learn try, catch and finally."],
+    ["Collections", "Explore ArrayList, HashMap and HashSet."]
+  ],
+  "Python": [
+    ["Python basics", "Learn variables, indentation and print()."],
+    ["Data types", "Practise numbers, strings, lists and dictionaries."],
+    ["Conditions", "Use if, elif and else."],
+    ["Loops", "Understand for, while, break and continue."],
+    ["Functions", "Define reusable code using def."],
+    ["Lists and tuples", "Store ordered collections of values."],
+    ["Dictionaries and sets", "Work with key-value pairs and unique items."],
+    ["File handling", "Read and write text files."],
+    ["Exceptions", "Handle errors with try and except."],
+    ["Classes", "Learn objects, methods and inheritance."]
+  ],
+  "JavaScript": [
+    ["JavaScript basics", "Learn let, const, variables and values."],
+    ["Data types", "Understand strings, numbers, booleans and objects."],
+    ["Conditions", "Use if-else and switch."],
+    ["Loops", "Practise for, while and for...of."],
+    ["Functions", "Write normal and arrow functions."],
+    ["Arrays", "Use map, filter, find and reduce."],
+    ["Objects", "Store related data in key-value pairs."],
+    ["DOM", "Select and update HTML elements."],
+    ["Events", "Respond to clicks and form submissions."],
+    ["Async JavaScript", "Learn promises and async/await."]
+  ]
+};
+
+const languageTabs = document.getElementById("languageTabs");
+const languageContent = document.getElementById("languageContent");
+const languageSearch = document.getElementById("languageSearch");
+let activeLanguage = "C";
+
+function renderTabs() {
+  languageTabs.innerHTML = "";
+  Object.keys(topics).forEach(language => {
+    const button = document.createElement("button");
+    button.className = "language-tab" + (language === activeLanguage ? " active" : "");
+    button.textContent = language;
+    button.type = "button";
+    button.setAttribute("role", "tab");
+    button.setAttribute("aria-selected", String(language === activeLanguage));
+    button.addEventListener("click", () => {
+      activeLanguage = language;
+      renderTabs();
+      renderTopics();
     });
+    languageTabs.appendChild(button);
   });
+}
 
-  // Three-dot menu
-  const moreBtn = document.getElementById("moreBtn");
-  const moreMenu = document.getElementById("moreMenu");
+function renderTopics() {
+  const search = languageSearch.value.toLowerCase().trim();
+  languageContent.innerHTML = "";
+  const filtered = topics[activeLanguage].filter(item =>
+    item[0].toLowerCase().includes(search) || item[1].toLowerCase().includes(search)
+  );
 
-  moreBtn.addEventListener("click", () => {
-    const isOpen = moreMenu.classList.toggle("show");
-    moreBtn.setAttribute("aria-expanded", String(isOpen));
+  if (!filtered.length) {
+    languageContent.innerHTML = '<p class="status">No matching topics. Try another search.</p>';
+    return;
+  }
+
+  filtered.forEach(item => {
+    const card = document.createElement("article");
+    card.className = "topic-card";
+    const heading = document.createElement("h3");
+    heading.textContent = item[0];
+    const description = document.createElement("p");
+    description.textContent = item[1];
+    card.append(heading, description);
+    languageContent.appendChild(card);
   });
+}
 
-  document.addEventListener("click", event => {
-    if (!event.target.closest(".more-wrap")) {
-      moreMenu.classList.remove("show");
-      moreBtn.setAttribute("aria-expanded", "false");
+languageSearch.addEventListener("input", renderTopics);
+renderTabs();
+renderTopics();
+
+// Beginner multiple-choice question bank
+const questions = [
+  {l:"C",q:"Which function is the usual entry point of a C program?",o:["start()","main()","run()","begin()"],a:1},
+  {l:"C",q:"Which format specifier is commonly used for an int in printf?",o:["%c","%f","%d","%s"],a:2},
+  {l:"C",q:"Which symbol ends a normal C statement?",o:[":",";"," .",","],a:1},
+  {l:"C",q:"Which loop checks its condition before each iteration?",o:["while","do-while only","switch","goto"],a:0},
+  {l:"C",q:"Array indexing in C normally starts at which index?",o:["1","-1","0","2"],a:2},
+  {l:"C",q:"Which operator gets the address of a variable?",o:["*","&","%","#"],a:1},
+  {l:"C",q:"Which keyword returns a value from a function?",o:["send","return","break","output"],a:1},
+  {l:"C",q:"Which header declares printf()?",o:["stdio.h","stdlib.h","string.h","math.h"],a:0},
+  {l:"C",q:"Which statement selects between multiple constant cases?",o:["for","if only","switch","while"],a:2},
+  {l:"C",q:"What does strlen() return?",o:["String length","Array address","Last character","String copy"],a:0},
+
+  {l:"C++",q:"Which stream is commonly used for output in C++?",o:["cin","cout","input","print"],a:1},
+  {l:"C++",q:"Which operator is used with cout?",o:["<<",">>","&&","::"],a:0},
+  {l:"C++",q:"Which concept bundles data and methods in a class?",o:["Encapsulation","Iteration","Compilation","Recursion"],a:0},
+  {l:"C++",q:"Which keyword creates a class?",o:["object","define","class","structs"],a:2},
+  {l:"C++",q:"Which feature lets functions share a name with different parameters?",o:["Overloading","Overriding only","Casting","Looping"],a:0},
+  {l:"C++",q:"Which container is a dynamic array in the STL?",o:["vector","queue only","pair","stack only"],a:0},
+  {l:"C++",q:"Which symbol accesses a member through an object?",o:["-> only"," .","&","%"],a:1},
+  {l:"C++",q:"Which keyword is used to create an object dynamically?",o:["new","make","alloc","create"],a:0},
+  {l:"C++",q:"Which OOP feature allows a derived class to use a base class?",o:["Inheritance","Searching","Tokenising","Sorting"],a:0},
+  {l:"C++",q:"Which header provides std::string?",o:["<string>","<cstdio>","<cmath>","<memory.h>"],a:0},
+
+  {l:"Java",q:"Java source code is commonly compiled into what?",o:["HTML","Bytecode","SQL","Machine code only"],a:1},
+  {l:"Java",q:"Which keyword declares a class in Java?",o:["define","class","struct","object"],a:1},
+  {l:"Java",q:"Which method is the standard program entry point?",o:["start()","main()","runProgram()","initMain()"],a:1},
+  {l:"Java",q:"Which keyword creates an object?",o:["make","new","this","class"],a:1},
+  {l:"Java",q:"Which type stores true or false?",o:["int","char","boolean","String"],a:2},
+  {l:"Java",q:"Which block handles an exception?",o:["try","catch","package","import"],a:1},
+  {l:"Java",q:"Which keyword inherits a class?",o:["implements","extends","inherits","superclass"],a:1},
+  {l:"Java",q:"Which collection is a resizable list?",o:["ArrayList","int","StringBuilder only","File"],a:0},
+  {l:"Java",q:"Which keyword refers to the current object?",o:["self","this","current","me"],a:1},
+  {l:"Java",q:"Which keyword prevents a class from being extended?",o:["static","private","final","void"],a:2},
+
+  {l:"Python",q:"Which keyword defines a function?",o:["func","define","def","function"],a:2},
+  {l:"Python",q:"Which symbol begins a comment on a line?",o:["//","#","<!--","**"],a:1},
+  {l:"Python",q:"Which collection uses key-value pairs?",o:["list","tuple","dictionary","set"],a:2},
+  {l:"Python",q:"Which function displays output?",o:["echo()","print()","writeLine()","show()"],a:1},
+  {l:"Python",q:"Which keyword starts a conditional branch?",o:["if","when","check","case"],a:0},
+  {l:"Python",q:"Which brackets commonly define a list?",o:["{}","()","[]","<>"],a:2},
+  {l:"Python",q:"Which keyword handles an exception?",o:["catch","except","error","handle"],a:1},
+  {l:"Python",q:"Which loop iterates over items in a sequence?",o:["foreach only","for","repeat","loop"],a:1},
+  {l:"Python",q:"Which value represents the absence of a value?",o:["undefined","None","empty","void"],a:1},
+  {l:"Python",q:"Which method adds an item to the end of a list?",o:["append()","insertEnd()","pushBack()","addLastOnly()"],a:0},
+
+  {l:"JavaScript",q:"Which keyword declares a block-scoped variable that can be reassigned?",o:["const","let","static","fixed"],a:1},
+  {l:"JavaScript",q:"Which method selects an element by its ID?",o:["getElementById()","queryAllId()","selectId()","findElement()"],a:0},
+  {l:"JavaScript",q:"Which symbol starts a single-line comment?",o:["#","//","<!--","**"],a:1},
+  {l:"JavaScript",q:"Which method adds an item to an array's end?",o:["push()","append()","insertEnd()","addLast()"],a:0},
+  {l:"JavaScript",q:"Which keyword declares a variable that cannot be reassigned?",o:["let","var","const","static"],a:2},
+  {l:"JavaScript",q:"Which event commonly fires when a button is clicked?",o:["changePage","click","hovered","pressButton"],a:1},
+  {l:"JavaScript",q:"Which method converts JSON text into a JavaScript value?",o:["JSON.parse()","JSON.read()","JSON.convert()","JSON.object()"],a:0},
+  {l:"JavaScript",q:"Which value represents an intentional absence of a value?",o:["null","NaN only","false only","zero only"],a:0},
+  {l:"JavaScript",q:"Which syntax creates an arrow function?",o:["->","=>","<=","::"],a:1},
+  {l:"JavaScript",q:"Which method selects the first matching CSS selector?",o:["querySelector()","getFirstClass()","selectAll()","findCSS()"],a:0}
+];
+
+const questionBank = document.getElementById("questionBank");
+const questionSearch = document.getElementById("questionSearch");
+const questionLanguage = document.getElementById("questionLanguage");
+const questionCount = document.getElementById("questionCount");
+const answered = new Set();
+
+function renderQuestions() {
+  const term = questionSearch.value.toLowerCase().trim();
+  const language = questionLanguage.value;
+  const filtered = questions.filter(item =>
+    (language === "All" || item.l === language) &&
+    (item.q.toLowerCase().includes(term) ||
+     item.l.toLowerCase().includes(term) ||
+     item.o.some(option => option.toLowerCase().includes(term)))
+  );
+
+  questionBank.innerHTML = "";
+  questionCount.textContent = filtered.length + " questions shown";
+
+  if (!filtered.length) {
+    questionBank.innerHTML = '<p class="status">No questions found. Try another search.</p>';
+    return;
+  }
+
+  filtered.forEach((item, index) => {
+    const card = document.createElement("article");
+    card.className = "question";
+    const title = document.createElement("h3");
+    title.textContent = (index + 1) + ". [" + item.l + "] " + item.q;
+    card.appendChild(title);
+
+    const options = document.createElement("div");
+    options.className = "question-options";
+    const key = questions.indexOf(item);
+    const wasAnswered = answered.has(key);
+
+    item.o.forEach((option, optionIndex) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "option";
+      button.textContent = String.fromCharCode(65 + optionIndex) + ". " + option;
+
+      if (wasAnswered && optionIndex === item.a) button.classList.add("correct");
+      button.disabled = wasAnswered;
+
+      button.addEventListener("click", () => {
+        if (answered.has(key)) return;
+        answered.add(key);
+        renderQuestions();
+
+        if (optionIndex !== item.a) {
+          const cards = questionBank.querySelectorAll(".question");
+          const currentCard = cards[index];
+          if (currentCard) {
+            const buttons = currentCard.querySelectorAll(".option");
+            if (buttons[optionIndex]) buttons[optionIndex].classList.add("incorrect");
+          }
+        }
+      });
+
+      options.appendChild(button);
+    });
+
+    card.appendChild(options);
+
+    if (wasAnswered) {
+      const note = document.createElement("p");
+      note.className = "answer-note";
+      note.textContent = "Correct answer: " + item.o[item.a];
+      card.appendChild(note);
     }
+
+    questionBank.appendChild(card);
   });
+}
 
-  moreMenu.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
-      moreMenu.classList.remove("show");
-    });
-  });
-
-  // Dark / Light theme
-  function toggleTheme() {
-    const light = document.body.classList.toggle("light-mode");
-
-    localStorage.setItem("harsh-theme", light ? "light" : "dark");
-
-    document.getElementById("themeBtn").textContent =
-      light ? "🌙" : "☀️";
-  }
-
-  document.getElementById("themeBtn")
-    .addEventListener("click", toggleTheme);
-
-  document.getElementById("menuThemeBtn")
-    .addEventListener("click", () => {
-      toggleTheme();
-      moreMenu.classList.remove("show");
-    });
-
-  if (localStorage.getItem("harsh-theme") === "light") {
-    document.body.classList.add("light-mode");
-    document.getElementById("themeBtn").textContent = "🌙";
-  }
+questionSearch.addEventListener("input", renderQuestions);
+questionLanguage.addEventListener("change", renderQuestions);
+renderQuestions();
 </script>
-
 </body>
 </html>
